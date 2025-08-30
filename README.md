@@ -180,7 +180,7 @@ For more info, please check below APIs and integration documents
 | API | Path | Integration Document |
 | ---- | ---- | ------------ |
 | [Midjourney Imagine API](http://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d) | `/midjourney/imagine` | [Midjourney Imagine API Integration Guide](http://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1) |
-| [Midjourney Seed API](http://platform.acedata.cloud/documents/32abf45d-1a7e-473e-8d7d-b00b939f7a91) | `/midjourney/seed` | [None](http://platform.acedata.cloud/documents/None) |
+| [Midjourney Seed API](http://platform.acedata.cloud/documents/32abf45d-1a7e-473e-8d7d-b00b939f7a91) | `/midjourney/seed` | [](http://platform.acedata.cloud/documents/) |
 | [$t(document_title_midjourney_edits_api)](http://platform.acedata.cloud/documents/5063782a-b2fa-40e1-8aa3-19c226d10378) | `/midjourney/edits` | [Midjourney Edits API Integration Guide](http://platform.acedata.cloud/documents/d6eda82a-6b99-4201-90ac-55f6eac23e66) |
 | [$t(document_title_midjourney_videos_api)](http://platform.acedata.cloud/documents/597e45dc-0981-49b0-a6e1-3b8d7f7a1241) | `/midjourney/videos` | [Midjourney Videos API Integration Guide](http://platform.acedata.cloud/documents/49c184f7-9990-490b-8c3d-dcea2039fc26) |
 | [Midjourney Describe API](http://platform.acedata.cloud/documents/870e973b-712a-4686-ab8b-beae27f129ce) | `/midjourney/describe` | [Midjourney Describe API Integration Guide](http://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756) |
