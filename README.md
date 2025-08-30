@@ -175,9 +175,9 @@ You can continue to pass the corresponding transformation commands for continuou
 
 ## More
 
-For more info, please check below APIs and integration documents
+For more info, please check below APIs and integration documents.
 
-| API | Path | Integration Document |
+| API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
 | [Midjourney Imagine API](http://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d) | `/midjourney/imagine` | [Midjourney Imagine API Integration Guide](http://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1) |
 | [Midjourney Seed API](http://platform.acedata.cloud/documents/32abf45d-1a7e-473e-8d7d-b00b939f7a91) | `/midjourney/seed` | [](http://platform.acedata.cloud/documents/) |
@@ -189,6 +189,6 @@ For more info, please check below APIs and integration documents
 
 Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
 
-## Support 
+## Support
 
 If you meet any issue, check our from [support info](https://platform.acedata.cloud/support).
