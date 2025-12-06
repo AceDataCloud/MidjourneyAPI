@@ -82,7 +82,7 @@ print(response.json())
 
 ### Response Example
 
-Upon a successful request, the API will return 4 description pieces for the image. For example:
+After a successful request, the API will return 4 description messages for the image. For example:
 
 ```json
 {

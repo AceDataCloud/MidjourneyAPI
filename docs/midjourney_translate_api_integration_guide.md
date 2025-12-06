@@ -2,7 +2,7 @@
 
 The main function of the Midjourney Translate API is to obtain English descriptive terms by inputting Chinese descriptive terms content.
 
-This document will provide detailed instructions on integrating the Midjourney Translate API, helping you easily leverage the powerful features of this API. With the Midjourney Translate API, you can easily convert Chinese descriptive terms content into English descriptive terms content.
+This document will provide detailed instructions on integrating the Midjourney Translate API, helping you easily integrate and fully utilize the powerful features of this API. With the Midjourney Translate API, you can easily convert Chinese descriptive terms content into English descriptive terms content.
 
 ## Application Process
 
@@ -28,6 +28,8 @@ Let's take a Chinese descriptive term as an example to demonstrate how to use th
 **Request Body** includes:
 
 - `content`: The uploaded Chinese descriptive term.
+
+> Only this one field is needed to complete the translation, please ensure that `content` uses Chinese descriptive terms.
 
 Set as shown in the image below:
 
@@ -76,7 +78,7 @@ print(response.text)
 
 ### Response Example
 
-After a successful request, the API will return one descriptive piece of information translated from the Chinese descriptive term. For example:
+After a successful request, the API will return one descriptive message translated from the Chinese descriptive term. For example:
 
 ```json
 {
@@ -86,7 +88,7 @@ After a successful request, the API will return one descriptive piece of informa
 
 As you can see, the result contains a `content` field, which includes the translated English descriptive term, corresponding to the translation of the Chinese descriptive term.
 
-- `content`, generates the corresponding English descriptive term, which can be used for image generation tasks.
+- `content`, generates the corresponding English descriptive term, which can be used for image generation task descriptions.
 
 ## Error Handling
 
