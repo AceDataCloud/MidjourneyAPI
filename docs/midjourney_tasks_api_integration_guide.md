@@ -144,8 +144,8 @@ The returned result contains multiple fields, with the request field being the r
 - `type`: If type = imagine, it represents the result of the Midjourney Imagine API; if type = describe, it represents the result of the Midjourney Describe API.
 - `job_id`: The ID of the image query task generated, used to uniquely identify this image query task.
 - `image_id`: The unique identifier of the image task being queried, which needs to be passed when performing transformation operations on the image next time.
-- `request`: The request information in the image task query.
-- `response`: The return information in the image task query.
+- `request`: The request information in the image query task.
+- `response`: The return information in the image query task.
 
 ## Batch Query Operation
 
@@ -169,7 +169,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-After a successful request, the API will return the specific details of all batch image tasks. For example:
+After a successful request, the API will return the specific details of all batch image tasks for this time. For example:
 
 ```json
 {
@@ -265,9 +265,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result contains multiple fields, among which `items` includes the specific details of the batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
+The returned result contains multiple fields, among which items include the specific details of the batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
 
-- `items`, all specific details of the batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of the batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task mentioned above.
 - `count`, the number of batch image tasks queried here.
 
 #### CURL
