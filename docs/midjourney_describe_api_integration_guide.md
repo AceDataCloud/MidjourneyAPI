@@ -14,7 +14,7 @@ To use the Midjourney Describe API, you need to first apply for the correspondin
 
 If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-The first application will grant you a free quota, allowing you to use this API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ## Request Example
 
@@ -24,7 +24,7 @@ Let's take an image as an example to demonstrate how to use this API. Suppose we
 
 ![Example Image](https://cdn.acedata.cloud/kg7xp3.png)
 
-### Set Request Headers and Request Body
+### Setting Request Headers and Request Body
 
 **Request Headers** include:
 
@@ -82,7 +82,7 @@ print(response.json())
 
 ### Response Example
 
-Upon a successful request, the API will return 4 description pieces for the image. For example:
+After a successful request, the API will return 4 description messages for the image. For example:
 
 ```json
 {
