@@ -4,7 +4,7 @@ This article will introduce a Midjourney Edits API integration guide, which allo
 
 ## Application Process
 
-To use the API, you first need to apply for the corresponding service on the [Midjourney Edits API](https://platform.acedata.cloud/documents/midjourney-edits) page. After entering the page, click the "Acquire" button, as shown in the image below:
+To use the API, you need to first apply for the corresponding service on the [Midjourney Edits API](https://platform.acedata.cloud/documents/midjourney-edits) page. After entering the page, click the "Acquire" button, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
@@ -20,24 +20,24 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here, we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response you want to receive, filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be selected directly after application.
 
 Additionally, the Request Body is set, including:
 
 - `mask`: can specify the mask position of the image area for editing and regeneration.
 - `split_images`: splits the generated image into multiple images, returned through the sub_image_urls field. By default, it is false.
-- `action`: the behavior of this image editing generation task, defaulting to `generate`.
+- `action`: the action for this image editing generation task, defaulting to `generate`.
 - `image_url`: the link to the image that needs to be edited.
 - `prompt`: the prompt.
 - `mode`: generation mode, optional `fast`/`relax`/`turbo`.
 - `callback_url`: the URL to receive the callback result.
 
-After selection, you can see that the corresponding code is generated on the right side, as shown in the image:
+After selection, you can see that the corresponding code is generated on the right side, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/9wed3b.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the above image, and we get the following result:
 
 ```json
 {
@@ -96,17 +96,17 @@ The overall process is: when the client initiates a request, an additional `call
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/. Open this site to obtain a Webhook URL, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/hfrbzw.png)
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
-Next, we can set the `callback_url` field to the above Webhook URL and fill in the corresponding parameters, as shown in the image:
+Next, we can set the field `callback_url` to the above Webhook URL while filling in the corresponding parameters, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" class="m-auto"></p>
 
-Clicking run, we can see that we immediately receive a result, as follows:
+Clicking run, we can see that an immediate result is obtained, as follows:
 
 ```
 {
@@ -114,7 +114,7 @@ Clicking run, we can see that we immediately receive a result, as follows:
 }
 ```
 
-After a moment, we can observe the generated video result at `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, as shown in the image:
+After a moment, we can observe the generated video result at `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/t8cupr.png" width="500" class="m-auto"></p>
 
@@ -140,7 +140,7 @@ The content is as follows:
 }
 ```
 
-You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to achieve task association.
+You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to associate tasks.
 
 ## Error Handling
 
