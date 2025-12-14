@@ -2,7 +2,7 @@
 
 Midjourney is a very powerful AI drawing tool that can generate exquisite images in just one or two minutes by simply inputting keywords. Midjourney stands out in the industry with its outstanding drawing capabilities, and today, it has been widely applied across various industries and fields, with its influence becoming increasingly significant.
 
-This document mainly introduces the usage process of the Imagine operation in the Midjourney API, which allows us to easily generate the required images through text.
+This document mainly introduces the usage process of the Imagine operation in the Midjourney API, allowing us to easily generate the required images through text.
 
 ## Application Process
 
@@ -12,7 +12,7 @@ To use the Midjourney Imagine API, you can first go to the [Midjourney Imagine A
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-When applying for the first time, there will be a free quota provided, allowing you to use the API for free.
+When applying for the first time, there will be a free quota available for use of the API.
 
 ## Basic Usage
 
@@ -20,7 +20,7 @@ Next, you can fill in the corresponding content on the interface, as shown in th
 
 ![](https://cdn.acedata.cloud/d01h9f.png)
 
-When using this interface for the first time, we need to fill in at least two pieces of content: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents wanting to draw a Lamborghini speeding inside a volcano.
+When using this interface for the first time, we need to fill in at least two pieces of information: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents wanting to draw a Lamborghini speeding inside a volcano.
 
 You can also notice that there is corresponding code generation on the right side, which you can copy to run directly, or you can click the "Try" button for testing.
 
@@ -74,7 +74,7 @@ The returned result contains multiple fields, described as follows:
 - `raw_image_url`: The URL of the original image, which is the same as the thumbnail content but is higher definition, loading slower.
 - `raw_image_width`: The pixel width of the original image.
 - `raw_image_height`: The pixel height of the original image.
-- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. So `upscale1` represents the enlargement operation on the first image in the upper left corner, and `variation3` represents the transformation operation based on the third image in the lower left corner.
+- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. So `upscale1` represents enlarging the first image in the upper left corner, and `variation3` represents transforming based on the third image in the lower left corner.
 
 Opening the link corresponding to `image_url` or `raw_image_url`, you can find as shown in the figure.
 
@@ -121,13 +121,13 @@ Open `image_url`, the newly generated image is as follows:
 
 As we can see, for the previous image in the upper right corner, we have again obtained four similar photos.
 
-At this point, we can select one of them for a refined enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4`, and then pass the current image's ID again through `image_id`.
+At this point, we can select one of them for a detailed upscale operation. For example, if we choose the fourth one, we can pass `action` as `upscale4` and use `image_id` to pass the current image's ID again.
 
 ![](https://cdn.acedata.cloud/jk9ohl.png)
 
 > Note: The `upscale` operation takes less time compared to `variation` in Midjourney.
 
-The returned result is as follows:
+The return result is as follows:
 
 ```json
 {
@@ -164,22 +164,22 @@ Thus, we have successfully obtained a photo of a Lamborghini.
 
 At the same time, note that the `actions` also include several operations that can be performed, described as follows:
 
-- `upscale_2x`: Enlarges the image by 2 times, resulting in a 2x high-definition image.
-- `upscale_4x`: Enlarges the image by 4 times, resulting in a 4x high-definition image.
-- `zoom_out_2x`: Reduces the image by 2 times (filling the surrounding area).
-- `zoom_out_1_5x`: Reduces the image by 1.5 times (filling the surrounding area).
-- `pan_left`: Shifts the image to the left.
-- `pan_right`: Shifts the image to the right.
-- `pan_up`: Shifts the image upwards.
-- `pan_down`: Shifts the image downwards.
+- `upscale_2x`: enlarge the image by 2 times, obtaining a 2x high-definition image.
+- `upscale_4x`: enlarge the image by 4 times, obtaining a 4x high-definition image.
+- `zoom_out_2x`: reduce the image by 2 times (filling the surrounding area).
+- `zoom_out_1_5x`: reduce the image by 1.5 times (filling the surrounding area).
+- `pan_left`: shift the image to the left.
+- `pan_right`: shift the image to the right.
+- `pan_up`: shift the image upwards.
+- `pan_down`: shift the image downwards.
 
 You can continue to pass the corresponding transformation commands for continuous image generation operations.
 
-## Image Rewriting (Base Image)
+## Image Rewrite (Base Image)
 
 This API also supports image rewriting, commonly known as base image. We can input an image URL and the description text that needs to be rewritten, and the API will return the rewritten image.
 
-> Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
+> Note: The input image URL must be a pure image, not a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
 
 For example, we have an image of a sunset on the highway, with some trees and buildings beside the road, as shown:
 
@@ -289,7 +289,7 @@ As we can see, we have successfully achieved image fusion.
 
 ## Local Transformation
 
-This API also supports local drawing functionality for images, but only supports generating images based on the content above. We can input a unique ID of a generated image, the action parameter for local repainting, and a mask for the area to be repainted, to achieve repainting in the masked area.
+This API also supports local drawing functionality for images, but only supports generating images based on the content mentioned above. We can input a unique ID of the generated image, the action parameter for local repainting, and the mask for the area to be repainted, to achieve repainting in the masked area.
 
 For example, here we have a generated image of a cat:
 
@@ -297,7 +297,7 @@ For example, here we have a generated image of a cat:
 
 Now we want to repaint the cat's face. How do we do that?
 
-First, we need to obtain the mask for that area. This mask is derived from a grayscale image encoded in Base64. Below are some example codes for obtaining the mask:
+First, we need to obtain the mask for that area. This mask is derived from a grayscale image encoded in Base64. Below are some tools and code examples for obtaining the mask:
 
 Example code for obtaining the mask in Python:
 ```python
@@ -417,7 +417,7 @@ if __name__ == '__main__':
     mainWindow.exec()
 ```
 
-Through the above code, we can obtain the mask image. In this process, we need to pay attention to the fact that the mask image must be the same size as the original image, and the white areas in the mask image are the areas that need to be redrawn. Below is a comparison of the mask image that needs to be redrawn for the cat image and the original image:
+Through the above code, we can obtain the mask image. In this process, we need to pay attention to the fact that the mask image must be the same size as the original image, and the white area in the mask image is the area that needs to be redrawn. Below is a comparison of the cat image that needs to be redrawn with the original image:
 
 Original image:
 <p><img src="https://cdn.acedata.cloud/t1tdf9.png" width="300" class="m-auto"></p>
@@ -447,9 +447,9 @@ print("success!")
 
 Through the above code, we obtained the mask `mask` that needs to be redrawn. Next, we also need to set the parameter `action` to `variation_region`, generate the image ID `image_id` (refer to the content above for obtaining this parameter), and pass in the corresponding mask `mask`. Other parameter information is as follows:
 
-- `action`: The action to be performed on the image, here it is `variation_region`, indicating that a partial redrawing of the image is to be performed.
-- `prompt`: A description of the partial redrawing of the image (optional parameter).
-- `image_id`: A unique identifier for the image, convenient for partial redrawing of the image.
+- `action`: The behavior of operating on the image, here it is `variation_region`, indicating that the image will be partially redrawn.
+- `prompt`: A description of the local redrawing of the image (optional parameter).
+- `image_id`: The unique identifier of the image, convenient for local redrawing of the image.
 - `mask`: The base64 encoding of the mask area corresponding to the image (the image is specified by the above image_id).
 
 Therefore, according to the above rules, we need to set the correct parameters. The parameter `prompt` is an optional parameter. Here, for the sake of comparison, the `prompt` for the mask area is set to `A cute cat`. The specific parameter settings are shown in the figure below:
@@ -538,25 +538,25 @@ print(response.text)
 
 ## Asynchronous Callback
 
-Since generating images with Midjourney requires some waiting time, this API is also designed for long-waiting mode by default. However, in some scenarios, long waiting may incur additional resource overhead, so this API also provides an asynchronous Webhook callback method. When the image generation is successful or fails, the result will be sent to the specified Webhook callback URL via an HTTP request. After the callback URL receives the result, further processing can be done.
+Since generating images with Midjourney requires some waiting time, this API is also designed for a long-wait mode by default. However, in some scenarios, long waiting may incur additional resource overhead, so this API also provides an asynchronous Webhook callback method. When the image generation is successful or fails, the result will be sent to the specified Webhook callback URL via an HTTP request. After the callback URL receives the result, it can perform further processing.
 
 The following demonstrates the specific calling process.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site [https://webhook.site/](https://webhook.site/ "https://webhook.site/") is used, and opening this site will provide a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site [https://webhook.site/](https://webhook.site/ "https://webhook.site/") is used here. By opening this site, you can obtain a Webhook URL, as shown in the image:
 
 ![](https://cdn.acedata.cloud/srf3tq.png)
 
-Copy this URL to use as the Webhook; the sample here is [https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c](https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c "https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c").
+Copy this URL, and it can be used as a Webhook. The sample here is [https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c](https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c "https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c").
 
-Next, we can set the field `callback_url` to the above Webhook URL and fill in `prompt`, as shown in the image:
+Next, we can set the field `callback_url` to the above Webhook URL and fill in the `prompt`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/hclosy.png)
 
-After clicking test, a response with a `task_id` will be received immediately, which is used to identify the current generation task's ID, as shown in the image:
+After clicking test, you will immediately receive a response with a `task_id`, which is used to identify the current generation task's ID, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/vkr32a.png" width="300" class="m-auto"></p>
 
-After a moment, when the image generation is complete, the Webhook URL will receive an HTTP request, as shown in the image:
+After a moment, when the image generation is complete, you can find that the Webhook URL has received an HTTP request, as shown in the image:
 
 ![](https://cdn.acedata.cloud/6znvgq.png)
 
@@ -588,7 +588,7 @@ The result is the current task's result, as follows:
 }
 ```
 
-The `success` field indicates whether the task was executed successfully. If successful, there will also be the same `actions`, `image_id`, `image_url` fields, which are the same as the return results mentioned above, and additionally, there is a `task_id` to identify the task, allowing for the association of the Webhook result with the initial API request.
+The `success` field indicates whether the task was executed successfully. If successful, there will also be the same `actions`, `image_id`, and `image_url` fields, which are the same as the return results mentioned above. Additionally, there is a `task_id` to identify the task, allowing for the association of the Webhook result with the initial API request.
 
 If the image generation fails, the Webhook URL will receive content similar to the following:
 
@@ -603,17 +603,17 @@ If the image generation fails, the Webhook URL will receive content similar to t
 }
 ```
 
-Here, the `success` field will be `false`, and there will also be `error.code` and `error.message` fields describing the details of the task error. The Webhook server can process according to the corresponding result.
+Here, the `success` field will be `false`, and there will also be `error.code` and `error.message` fields describing the details of the task error. The Webhook server can process the results accordingly.
 
 ## Streaming Output
 
-Midjourney officially has progress when generating images. Initially, it is a blurry photo, and after several iterations, the image gradually becomes clear, ultimately resulting in a complete image.
+Midjourney officially has progress when generating images. Initially, it starts as a blurry photo, and after several iterations, the image gradually becomes clearer, ultimately resulting in a complete image.
 
-Therefore, the process of generating an image can be roughly divided into the stages of "sending command" -> "starting image generation (gradually becoming clear through multiple iterations)" -> "image generation complete."
+Therefore, the image generation process can be roughly divided into the stages of "sending command" -> "starting image generation (multiple iterations gradually becoming clear)" -> "image generation complete."
 
-Without enabling streaming output, this API from initiating the request to returning the result actually encompasses the entire process from "sending command" to "image generation complete," with the image generation process included. Since Midjourney itself generates images relatively slowly, the entire process may take about a minute or longer.
+When streaming output is not enabled, this API goes through the entire process from "sending command" to "image generation complete" when making a request, and the image generation process is included in it. Since Midjourney itself generates images relatively slowly, the entire process may take about a minute or longer.
 
-To improve user experience, this API supports streaming output, meaning that when "starting image generation," it begins to return results. Whenever there is a change in drawing progress, the results will be streamed until the image generation ends.
+To provide a better user experience, this API supports streaming output, meaning that results start to be returned as soon as "image generation starts." Whenever there is a change in drawing progress, the results will be streamed until the image generation ends.
 
 If you want to return responses in a streaming manner, you can change the `accept` parameter in the request header to `application/x-ndjson`, but the calling code needs to be modified accordingly to support streaming responses.
 
@@ -637,7 +637,6 @@ for line in r.iter_lines():
 ```
 
 Running result:
-```
 ```json
 {"image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558451443699803/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba7&is=662fda27&hm=4625d5f12158bffc07c4faaf6ce75af6f1396122f148b33b91f3e20b48fecc8b&width=256&height=256","image_width":256,"image_height":256,"image_id":"1234558451443699803","raw_image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558451443699803/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba7&is=662fda27&hm=4625d5f12158bffc07c4faaf6ce75af6f1396122f148b33b91f3e20b48fecc8b&","raw_image_width":512,"raw_image_height":512,"progress":35,"actions":[],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
 {"image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558458595115149/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba9&is=662fda29&hm=9af53fa645127131a88dfbb3930add7abda710c12a3d6c30c457d6a067b36bab&width=256&height=256","image_width":256,"image_height":256,"image_id":"1234558458595115149","raw_image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558458595115149/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba9&is=662fda29&hm=9af53fa645127131a88dfbb3930add7abda710c12a3d6c30c457d6a067b36bab&","raw_image_width":512,"raw_image_height":512,"progress":75,"actions":[],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
