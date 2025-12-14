@@ -10,7 +10,7 @@ To use the API, you first need to apply for the corresponding service on the [Mi
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota available for you to use the API for free.
+When applying for the first time, there will be a free quota available for you to use the API for free.
 
 ## Basic Usage
 
@@ -40,7 +40,7 @@ After selection, you can see that the corresponding code is also generated on th
 
 <p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the above image, we obtained the following result:
 
 ```json
 {
@@ -62,15 +62,15 @@ Click the "Try" button to test, as shown in the above image, and we get the foll
 
 The returned result contains multiple fields, described as follows:
 
-- `success`, the status of the video generation task at this time.
-- `task_id`, the ID of the video generation task at this time.
-- `image_url`, the cover image of the video generation task at this time.
-- `image_width`, the width of the cover image of the video generation task at this time.
-- `image_height`, the height of the cover image of the video generation task at this time.
-- `video_id`, the video ID of the video generation task at this time.
-- `video_urls`, the array of video links of the video generation task at this time.
+- `success`: the status of the video generation task at this time.
+- `task_id`: the ID of the video generation task at this time.
+- `image_url`: the cover image of the video generation task at this time.
+- `image_width`: the width of the cover image of the video generation task at this time.
+- `image_height`: the height of the cover image of the video generation task at this time.
+- `video_id`: the video ID of the video generation task at this time.
+- `video_urls`: the array of video links of the video generation task at this time.
 
-We can see that we have obtained satisfactory video information, and we only need to obtain the generated Midjourney video using the video link address in `video_urls`.
+We can see that we have obtained satisfactory video information, and we only need to obtain the generated Midjourney video using the video link address from `video_urls`.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -90,13 +90,13 @@ curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
 
 If you want to continue generating an already created Kling video, you can set the parameter `action` to `extend` and input the ID of the video you want to continue generating. The video ID can be obtained based on the basic usage.
 
-At this point, you can see that the video ID from the previous text is:
+At this point, you can see that the ID of the video mentioned above is:
 
 ```
 "video_id": "1751816807896311"
 ```
 
-> Note that the `video_id` here is the ID of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+> Note that the `video_id` here is the ID of the generated video. If you do not know how to generate a video, you can refer to the basic usage mentioned above to generate a video.
 
 Next, you must fill in the prompt for the next step to customize the generated video, specifying the following content:
 
@@ -137,7 +137,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Click to run, and you will find that you will get a result, as follows:
+Clicking run, you can find that you will get a result, as follows:
 ```json
 {
     "image_url": "https://storage.fonedis.cc/upload_1751817471047011172.png",
@@ -156,27 +156,27 @@ Click to run, and you will find that you will get a result, as follows:
 }
 ```
 
-It can be seen that the result content is consistent with the above text, which also realizes the extended video function of the video.
+It can be seen that the result content is consistent with the above text, which also realizes the extended video function.
 
 ## Asynchronous Callback
 
-Since the generation time of the Midjourney Videos API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Due to the relatively long generation time of the Midjourney Videos API, which takes about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
-Let’s understand how to operate specifically through an example.
+Let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, a public Webhook sample website https://webhook.site/ is used. Opening this website will provide a Webhook URL, as shown in the figure:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, a public Webhook sample site https://webhook.site/ is used, and opening this site will provide a Webhook URL, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/lali6d.png" width="500" class="m-auto"></p>
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
-Next, we can set the `callback_url` field to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
+Next, we can set the `callback_url` field to the above Webhook URL, while filling in the corresponding parameters, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/vk0l0a.png" width="500" class="m-auto"></p>
 
-Clicking run, you can find that an immediate result is obtained, as follows:
+Clicking run, we can find that an immediate result is obtained, as follows:
 
 ```
 {
@@ -184,7 +184,7 @@ Clicking run, you can find that an immediate result is obtained, as follows:
 }
 ```
 
-After a moment, we can observe the generated video result at `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, as shown in the figure:
+After a moment, we can observe the generated video result at `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/7hcuw8.png" width="500" class="m-auto"></p>
 
@@ -208,7 +208,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that the result contains a `task_id` field, and other fields are similar to the above text, allowing the task to be associated through this field.
+It can be seen that the result contains a `task_id` field, and the other fields are similar to the above text, allowing the task to be associated through this field.
 
 ## Error Handling
 
