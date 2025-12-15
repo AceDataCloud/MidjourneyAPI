@@ -144,8 +144,8 @@ The returned result contains multiple fields, with the request field being the r
 - `type`: If type = imagine, it represents the result of the Midjourney Imagine API; if type = describe, it represents the result of the Midjourney Describe API.
 - `job_id`: The ID of the image query task generated, used to uniquely identify this image query task.
 - `image_id`: The unique identifier of the image task being queried, which needs to be passed when performing transformation operations on the image next time.
-- `request`: The request information in the image query task.
-- `response`: The return information in the image query task.
+- `request`: The request information in the image task query.
+- `response`: The return information in the image task query.
 
 ## Batch Query Operation
 
