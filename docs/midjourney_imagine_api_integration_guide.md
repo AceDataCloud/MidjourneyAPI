@@ -12,7 +12,7 @@ To use the Midjourney Imagine API, you can first go to the [Midjourney Imagine A
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-When applying for the first time, there will be a free quota available for use of the API.
+When applying for the first time, there will be a free quota available for you to use the API for free.
 
 ## Basic Usage
 
@@ -20,9 +20,9 @@ Next, you can fill in the corresponding content on the interface, as shown in th
 
 ![](https://cdn.acedata.cloud/d01h9f.png)
 
-When using this interface for the first time, we need to fill in at least two pieces of information: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents wanting to draw a Lamborghini speeding inside a volcano.
+When using this interface for the first time, we need to fill in at least two pieces of content: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents wanting to draw a Lamborghini speeding inside a volcano.
 
-You can also notice that there is corresponding code generation on the right side, which you can copy to run directly, or you can click the "Try" button for testing.
+You can also notice that there is corresponding code generation on the right side; you can copy the code to run directly or click the "Try" button for testing.
 
 Main request parameters:
 
@@ -71,10 +71,10 @@ The returned result contains multiple fields, described as follows:
 - `image_url`: The URL of the thumbnail, which can be opened directly to view the generated effect.
 - `image_width`: The pixel width of the thumbnail.
 - `image_height`: The pixel height of the thumbnail.
-- `raw_image_url`: The URL of the original image, which is the same as the thumbnail content but is higher definition, loading slower.
+- `raw_image_url`: The URL of the original image, which is the same as the thumbnail content but is higher definition, loading a bit slower.
 - `raw_image_width`: The pixel width of the original image.
 - `raw_image_height`: The pixel height of the original image.
-- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. So `upscale1` represents enlarging the first image in the upper left corner, and `variation3` represents transforming based on the third image in the lower left corner.
+- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlarging, and `variation` represents transformation. So `upscale1` represents enlarging the first image in the top left corner, and `variation3` represents transforming based on the third image in the bottom left corner.
 
 Opening the link corresponding to `image_url` or `raw_image_url`, you can find as shown in the figure.
 
@@ -84,7 +84,7 @@ It can be seen that a 2x2 preview image has been generated here. So far, the fir
 
 ## Image Upscaling and Transformation
 
-Next, we will try to perform further operations on the currently generated photo. For example, if we think the second image in the upper right corner is quite good, but we want to make some transformation adjustments, we can further fill in `action` as `variation2` and pass the `image_id`:
+Next, we will try to perform further operations on the currently generated photo. For example, if we think the second image in the top right corner is quite good, but we want to make some transformation adjustments, we can further fill in `action` as `variation2` and pass the `image_id`:
 
 ![](https://cdn.acedata.cloud/ia7vpw.png)
 
@@ -119,9 +119,9 @@ Open `image_url`, the newly generated image is as follows:
 
 ![](https://cdn.acedata.cloud/4g6r09.png)
 
-As we can see, for the previous image in the upper right corner, we have again obtained four similar photos.
+As can be seen, for the previous image in the upper right corner, we have again obtained four similar photos.
 
-At this point, we can select one of them for a detailed upscale operation. For example, if we choose the fourth one, we can pass `action` as `upscale4` and use `image_id` to pass the current image's ID again.
+At this point, we can select one of them for a refined enlargement operation. For example, if we choose the fourth one, we can pass `upscale4` in the `action` and then pass the current image's ID again using `image_id`.
 
 ![](https://cdn.acedata.cloud/jk9ohl.png)
 
@@ -164,24 +164,24 @@ Thus, we have successfully obtained a photo of a Lamborghini.
 
 At the same time, note that the `actions` also include several operations that can be performed, described as follows:
 
-- `upscale_2x`: enlarge the image by 2 times, obtaining a 2x high-definition image.
-- `upscale_4x`: enlarge the image by 4 times, obtaining a 4x high-definition image.
-- `zoom_out_2x`: reduce the image by 2 times (filling the surrounding area).
-- `zoom_out_1_5x`: reduce the image by 1.5 times (filling the surrounding area).
-- `pan_left`: shift the image to the left.
-- `pan_right`: shift the image to the right.
-- `pan_up`: shift the image upwards.
-- `pan_down`: shift the image downwards.
+- `upscale_2x`: Enlarges the image by 2 times, resulting in a 2x high-definition image.
+- `upscale_4x`: Enlarges the image by 4 times, resulting in a 4x high-definition image.
+- `zoom_out_2x`: Reduces the image by 2 times (filling surrounding areas).
+- `zoom_out_1_5x`: Reduces the image by 1.5 times (filling surrounding areas).
+- `pan_left`: Shifts the image to the left.
+- `pan_right`: Shifts the image to the right.
+- `pan_up`: Shifts the image upwards.
+- `pan_down`: Shifts the image downwards.
 
-You can continue to pass the corresponding transformation commands for continuous image generation operations.
+You can continue to pass the corresponding transformation commands for continuous image generation operations according to the above process.
 
 ## Image Rewrite (Base Image)
 
 This API also supports image rewriting, commonly known as base image. We can input an image URL and the description text that needs to be rewritten, and the API will return the rewritten image.
 
-> Note: The input image URL must be a pure image, not a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
+> Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
 
-For example, we have an image of a sunset on the highway, with some trees and buildings beside the road, as shown:
+For example, we have an image of a sunset on a highway, with some trees and buildings beside the road, as shown:
 
 ![](https://cdn.acedata.cloud/mq335u.png)
 
@@ -191,7 +191,7 @@ Now we want to rewrite it to be next to a beach, with a car parked by the roadsi
 https://cdn.acedata.cloud/v014oc.png an illustration of a car parked on the beach --iw 2
 ```
 
-As we can see, the beginning of our prompt is an HTTPS image link, followed by a space, and then the prompt text content. Here we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
+As can be seen, the beginning of our prompt is an HTTPS image link, followed by a space, and then the prompt text content. Here we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
 
 We can pass the above content as a whole to the `prompt` field, as shown:
 
@@ -289,7 +289,7 @@ As we can see, we have successfully achieved image fusion.
 
 ## Local Transformation
 
-This API also supports local drawing functionality for images, but only supports generating images based on the content mentioned above. We can input a unique ID of the generated image, the action parameter for local repainting, and the mask for the area to be repainted, to achieve repainting in the masked area.
+This API also supports local drawing functionality for images, but only supports generating images based on the content above. We can input a unique ID of a generated image, the action parameter for local repainting, and a mask for the area to be repainted, to achieve repainting in the masked area.
 
 For example, here we have a generated image of a cat:
 
@@ -297,7 +297,7 @@ For example, here we have a generated image of a cat:
 
 Now we want to repaint the cat's face. How do we do that?
 
-First, we need to obtain the mask for that area. This mask is derived from a grayscale image encoded in Base64. Below are some tools and code examples for obtaining the mask:
+First, we need to obtain the mask for that area. This mask is derived from a grayscale image encoded in Base64. Below are some example codes for obtaining the mask:
 
 Example code for obtaining the mask in Python:
 ```python
@@ -417,7 +417,7 @@ if __name__ == '__main__':
     mainWindow.exec()
 ```
 
-Through the above code, we can obtain the mask image. In this process, we need to pay attention to the fact that the mask image must be the same size as the original image, and the white area in the mask image is the area that needs to be redrawn. Below is a comparison of the cat image that needs to be redrawn with the original image:
+Through the above code, we can obtain the mask image. In this process, we need to pay attention to the fact that the mask image must be the same size as the original image, and the white areas in the mask image are the areas that need to be redrawn. Below is a comparison of the cat image that needs to be redrawn with the original image:
 
 Original image:
 <p><img src="https://cdn.acedata.cloud/t1tdf9.png" width="300" class="m-auto"></p>
@@ -445,14 +445,14 @@ print("success!")
 
 > Note: The above Python code describes the process of generating the mask. If you want to integrate it into your product, please write the corresponding code in your language based on its principles.
 
-Through the above code, we obtained the mask `mask` that needs to be redrawn. Next, we also need to set the parameter `action` to `variation_region`, generate the image ID `image_id` (refer to the content above for obtaining this parameter), and pass in the corresponding mask `mask`. Other parameter information is as follows:
+Through the above code, we obtained the mask that needs to be redrawn. Next, we also need to set the parameter `action` to `variation_region`, generate the image ID `image_id` (refer to the content above for obtaining this parameter), and pass in the corresponding mask `mask`. Other parameter information is as follows:
 
 - `action`: The behavior of operating on the image, here it is `variation_region`, indicating that the image will be partially redrawn.
 - `prompt`: A description of the local redrawing of the image (optional parameter).
 - `image_id`: The unique identifier of the image, convenient for local redrawing of the image.
 - `mask`: The base64 encoding of the mask area corresponding to the image (the image is specified by the above image_id).
 
-Therefore, according to the above rules, we need to set the correct parameters. The parameter `prompt` is an optional parameter. Here, for the sake of comparison, the `prompt` for the mask area is set to `A cute cat`. The specific parameter settings are shown in the figure below:
+Therefore, according to the above rules, we need to set the correct parameters. The parameter `prompt` is an optional parameter. Here, for the sake of comparison, the prompt for the mask area is set to `A cute cat`. The specific parameter settings are shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/p0hwrf.png" width="500" class="m-auto"></p>
 
@@ -556,11 +556,11 @@ After clicking test, you will immediately receive a response with a `task_id`, w
 
 <p><img src="https://cdn.acedata.cloud/vkr32a.png" width="300" class="m-auto"></p>
 
-After a moment, when the image generation is complete, you can find that the Webhook URL has received an HTTP request, as shown in the image:
+After a moment, when the image generation is complete, you will find that the Webhook URL has received an HTTP request, as shown in the image:
 
 ![](https://cdn.acedata.cloud/6znvgq.png)
 
-The result is the current task's result, as follows:
+The result is the outcome of the current task, as follows:
 
 ```json
 {
@@ -611,11 +611,11 @@ Midjourney officially has progress when generating images. Initially, it starts 
 
 Therefore, the image generation process can be roughly divided into the stages of "sending command" -> "starting image generation (multiple iterations gradually becoming clear)" -> "image generation complete."
 
-When streaming output is not enabled, this API goes through the entire process from "sending command" to "image generation complete" when making a request, and the image generation process is included in it. Since Midjourney itself generates images relatively slowly, the entire process may take about a minute or longer.
+When streaming output is not enabled, this API goes through the entire process from "sending command" to "image generation complete" when making a request, and the image generation process is included in between. Since Midjourney itself generates images relatively slowly, the entire process may take about a minute or longer.
 
 To provide a better user experience, this API supports streaming output, meaning that results start to be returned as soon as "image generation starts." Whenever there is a change in drawing progress, the results will be streamed until the image generation ends.
 
-If you want to return responses in a streaming manner, you can change the `accept` parameter in the request header to `application/x-ndjson`, but the calling code needs to be modified accordingly to support streaming responses.
+If you want to return responses in a streaming manner, you can change the `accept` parameter in the request header to `application/x-ndjson`. However, the calling code needs to be modified accordingly to support streaming responses.
 
 Python sample code:
 
@@ -680,4 +680,4 @@ Please note that in the streaming output result, there is a field called progres
 
 > Note: When the generation is not fully completed, the `actions` field is empty, indicating that further processing operations cannot be performed on the intermediate image. After the generation is completed, the image_url generated during the process will be destroyed.
 
-Additionally, you can combine the streaming results with asynchronous callbacks by specifying the request header `accept=application/x-ndjson` and the request body `callback_url`, then the callback_url can receive multiple POST requests of streaming results.
+Additionally, you can combine the streaming results with asynchronous callbacks by specifying the request header `accept=application/x-ndjson` and the request body of callback_url, then the callback_url can receive multiple POST requests of streaming results.
