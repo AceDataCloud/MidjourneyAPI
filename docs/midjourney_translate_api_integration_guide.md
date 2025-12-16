@@ -12,7 +12,7 @@ To use the Midjourney Translate API, you need to first apply for the correspondi
 
 If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-The first application will have a free quota gift, allowing you to use the API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ## Request Example
 
@@ -29,9 +29,9 @@ Let's take a Chinese descriptive term as an example to demonstrate how to use th
 
 - `content`: The uploaded Chinese descriptive term.
 
-> Only this one field is needed to complete the translation, please ensure that `content` uses the Chinese descriptive term.
+> Only this one field is needed to complete the translation; please ensure that `content` uses Chinese descriptive terms.
 
-Set as shown in the image below:
+Set it as shown in the image below:
 
 ![](https://cdn.acedata.cloud/db8lrn.png)
 
@@ -88,7 +88,7 @@ After a successful request, the API will return one descriptive message translat
 
 As you can see, the result contains a `content` field, which includes the translated English descriptive term, corresponding to the translation of the Chinese descriptive term.
 
-- `content`, generates the corresponding English descriptive term, which can be used for image generation task descriptions.
+- `content`, generates the corresponding English descriptive term, which can be used for image generation tasks.
 
 ## Error Handling
 
