@@ -102,11 +102,11 @@ First, the Webhook callback is a service that can receive HTTP requests, and dev
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
-Next, we can set the field `callback_url` to the above Webhook URL while filling in the corresponding parameters, as shown in the image below:
+Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" class="m-auto"></p>
 
-Clicking run, we can see that we immediately receive a result, as follows:
+Clicking run, we can see that an immediate result is obtained, as follows:
 
 ```
 {
@@ -140,7 +140,7 @@ The content is as follows:
 }
 ```
 
-You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to achieve task association.
+You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to associate tasks.
 
 ## Error Handling
 
@@ -167,4 +167,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Edits API to edit images by inputting prompts. We hope this document can help you better connect and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Edits API to edit images by inputting prompts. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
