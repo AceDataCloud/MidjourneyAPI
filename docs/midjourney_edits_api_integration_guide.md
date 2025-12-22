@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [Mi
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota available for you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -140,7 +140,7 @@ The content is as follows:
 }
 ```
 
-You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to associate tasks.
+You can see that the result contains a `task_id` field, and other fields are similar to the above text. This field can be used to achieve task association.
 
 ## Error Handling
 
@@ -167,4 +167,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Edits API to edit images by inputting prompts. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Edits API to edit images by inputting prompts. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
