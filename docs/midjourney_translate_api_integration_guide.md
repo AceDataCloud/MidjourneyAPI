@@ -29,9 +29,9 @@ Let's take a Chinese descriptive term as an example to demonstrate how to use th
 
 - `content`: The uploaded Chinese descriptive term.
 
-> Only this one field is needed to complete the translation; please ensure that `content` uses Chinese descriptive terms.
+> Only this one field is needed to complete the translation, please ensure that `content` uses Chinese descriptive terms.
 
-Set it as shown in the image below:
+Set as shown in the image below:
 
 ![](https://cdn.acedata.cloud/db8lrn.png)
 
@@ -78,7 +78,7 @@ print(response.text)
 
 ### Response Example
 
-After a successful request, the API will return one descriptive message translated from the Chinese descriptive term. For example:
+After a successful request, the API will return one descriptive piece of information translated from the Chinese descriptive term. For example:
 
 ```json
 {
