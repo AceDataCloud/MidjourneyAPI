@@ -16,7 +16,7 @@ There is a free quota available for first-time applicants, allowing you to use t
 
 ## Request Example
 
-Let's take a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: exquisite, flawless, pure white angel. Next, we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
+We will use a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: exquisite, flawless, pure white angel. Next, we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
 
 ### Setting Request Headers and Request Body
 
@@ -31,7 +31,7 @@ Let's take a Chinese descriptive term as an example to demonstrate how to use th
 
 > Only this one field is needed to complete the translation, please ensure that `content` uses Chinese descriptive terms.
 
-Set as shown in the image below:
+Set it as shown in the image below:
 
 ![](https://cdn.acedata.cloud/db8lrn.png)
 
@@ -88,7 +88,7 @@ After a successful request, the API will return one descriptive piece of informa
 
 As you can see, the result contains a `content` field, which includes the translated English descriptive term, corresponding to the translation of the Chinese descriptive term.
 
-- `content`, generates the corresponding English descriptive term, which can be used for image generation tasks.
+- `content`: Generates the corresponding English descriptive term, which can be used for image generation tasks.
 
 ## Error Handling
 
