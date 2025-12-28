@@ -47,7 +47,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-It can be seen that various language codes have been automatically generated on the right side of the page, as shown in the image:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" class="m-auto"></p>
 
@@ -138,7 +138,7 @@ Upon successful request, the API will return the detailed information of the ima
 }
 ```
 
-The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. If type = imagine, its result is consistent with the request and return of the Midjourney Imagine API; if type = describe, its result is consistent with the request and return of the Midjourney Describe API. The field descriptions are as follows.
+The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. If type = imagine, the result is consistent with the request and return of the Midjourney Imagine API; if type = describe, the result is consistent with the request and return of the Midjourney Describe API. The field descriptions are as follows.
 
 - `id`: The ID of the image generation task, used to uniquely identify this image generation task.
 - `type`: If type = imagine, it represents the result of the Midjourney Imagine API; if type = describe, it represents the result of the Midjourney Describe API.
@@ -332,4 +332,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Tasks API to query the specific details of single or batch image tasks. We hope this document can help you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Tasks API to query the specific details of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
