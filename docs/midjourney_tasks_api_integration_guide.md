@@ -16,7 +16,7 @@ Finally, go to the Tasks API page [Midjourney Tasks API](https://platform.acedat
 
 If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use this API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ## Request Example
 
@@ -47,7 +47,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
+It can be seen that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" class="m-auto"></p>
 
@@ -90,7 +90,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the detailed information of the image task. For example:
+Upon a successful request, the API will return the detailed information of the image task. For example:
 
 ```json
 {
@@ -138,7 +138,7 @@ Upon successful request, the API will return the detailed information of the ima
 }
 ```
 
-The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. If type = imagine, the result is consistent with the request and return of the Midjourney Imagine API; if type = describe, the result is consistent with the request and return of the Midjourney Describe API. The field descriptions are as follows.
+The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. If type = imagine, its result is consistent with the request and return of the Midjourney Imagine API; if type = describe, its result is consistent with the request and return of the Midjourney Describe API. The field descriptions are as follows.
 
 - `id`: The ID of the image generation task, used to uniquely identify this image generation task.
 - `type`: If type = imagine, it represents the result of the Midjourney Imagine API; if type = describe, it represents the result of the Midjourney Describe API.
@@ -265,9 +265,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result contains multiple fields, among which `items` includes the specific details of the batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
+The returned result contains multiple fields, among which items include the specific details of batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
 
-- `items`, all specific details of the batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of batch image tasks queried here.
 
 #### CURL
@@ -332,4 +332,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Tasks API to query the specific details of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Tasks API to query the specific details of single or batch image tasks. We hope this document can help you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
