@@ -20,9 +20,9 @@ Next, you can fill in the corresponding content on the interface, as shown in th
 
 ![](https://cdn.acedata.cloud/d01h9f.png)
 
-When using this interface for the first time, we need to fill in at least two pieces of content: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents wanting to draw a Lamborghini speeding inside a volcano.
+When using this interface for the first time, we need to fill in at least two pieces of content: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents drawing a Lamborghini speeding inside a volcano.
 
-You can also notice that there is corresponding code generation on the right side; you can copy the code to run it directly or click the "Try" button for testing.
+You can also notice that there is corresponding code generation on the right side; you can copy the code to run directly or click the "Try" button for testing.
 
 Main request parameters:
 
@@ -119,9 +119,9 @@ Open `image_url`, the newly generated image is as follows:
 
 ![](https://cdn.acedata.cloud/4g6r09.png)
 
-As we can see, for the previous image in the upper right corner, we have again obtained four similar photos.
+As can be seen, for the previous image in the upper right corner, we have again obtained four similar photos.
 
-At this point, we can select one of them for a detailed enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4`, and then pass the current image's ID again through `image_id`.
+At this point, we can select one of them for a refined enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4` and use the current image's ID via `image_id`.
 
 ![](https://cdn.acedata.cloud/jk9ohl.png)
 
@@ -162,24 +162,24 @@ Among them, `image_url` is shown as follows:
 
 Thus, we have successfully obtained a photo of a Lamborghini.
 
-At the same time, it is noted that the `actions` contain several operations that can be performed, described as follows:
+At the same time, note that the `actions` contain several operations that can be performed, described as follows:
 
 - `upscale_2x`: Enlarges the image by 2 times, resulting in a 2x high-definition image.
 - `upscale_4x`: Enlarges the image by 4 times, resulting in a 4x high-definition image.
 - `zoom_out_2x`: Reduces the image by 2 times (filling surrounding areas).
 - `zoom_out_1_5x`: Reduces the image by 1.5 times (filling surrounding areas).
-- `pan_left`: Shifts the image to the left.
-- `pan_right`: Shifts the image to the right.
-- `pan_up`: Shifts the image upwards.
-- `pan_down`: Shifts the image downwards.
+- `pan_left`: Performs a left shift operation on the image.
+- `pan_right`: Performs a right shift operation on the image.
+- `pan_up`: Performs an upward shift operation on the image.
+- `pan_down`: Performs a downward shift operation on the image.
 
-You can continue to follow the above process to pass the corresponding transformation commands for continuous image generation operations.
+You can continue to pass the corresponding transformation commands for continuous image generation operations as described above.
 
 ## Image Rewrite (Base Image)
 
-This API also supports image rewriting, commonly known as base image, where we can input an image URL and a description of what needs to be rewritten, and the API will return the rewritten image.
+This API also supports image rewriting, commonly known as base image, where we can input an image URL and the description text to be rewritten, and the API will return the rewritten image.
 
-> Note: The input image URL must be a pure image, not a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
+> Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
 
 For example, we have an image of a sunset on a highway, with some trees and buildings beside the road, as shown:
 
@@ -191,14 +191,13 @@ Now we want to rewrite it to be next to a beach, with a car parked by the roadsi
 https://cdn.acedata.cloud/v014oc.png an illustration of a car parked on the beach --iw 2
 ```
 
-As we can see, the beginning of our prompt is an HTTPS image link, followed by a space, and then the content of the prompt text. Here we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
+As can be seen, the beginning of our prompt is an HTTPS image link, followed by a space, and then the content of the prompt text. Here, we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
 
 We can pass the above content as a whole to the `prompt` field, as shown:
 
 ![](https://cdn.acedata.cloud/pfcoy1.png)
 
 The output result is as follows:
-```
 ```bash
 {
   "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234427310434947145/1234539663515975690/atmateosa5693_An_illustration_of_a_car_parked_on_the_beach_id26_cc8650ec-7e4b-4685-8911-78172430d8a7.png?ex=66311a28&is=662fc8a8&hm=c39707a1f22bc7f12874060ea6ed58ba37c188139ccc9a13c61ed9f37e66ea74&width=1456&height=816",
@@ -250,7 +249,7 @@ We can construct the following prompt:
 https://cdn.acedata.cloud/8fapzl.png https://cdn.acedata.cloud/c1igbw.png The bear is holding the chainsaw --iw 2
 ```
 
-As we can see, similar to Image with Prompt, we place multiple image URLs at the beginning of the prompt, separated by spaces, and then add the text prompt at the end, passing the above content as a whole to the `prompt` parameter. The running effect is as follows:
+As we can see, similar to Image with Prompt, we place multiple image URLs at the beginning of the prompt, separated by spaces, and then add the text prompt, passing the above content as a whole to the `prompt` parameter. The running effect is as follows:
 
 ```bash
 {
@@ -297,7 +296,7 @@ For example, here we have a generated image of a cat:
 
 Now we want to repaint the cat's face. How do we do that?
 
-First, we need to obtain the mask for that area. This mask is derived from a grayscale image encoded in Base64. Below are some tools and code examples for obtaining the mask:
+First, we need to obtain the mask for that area, which is derived from a grayscale image encoded in Base64. Below are some tools and code examples for obtaining the mask:
 
 Example code for obtaining the mask in Python:
 ```
@@ -418,7 +417,7 @@ if __name__ == '__main__':
     mainWindow.exec()
 ```
 
-Through the above code, we can obtain the mask image. In this process, we need to pay attention to the fact that the mask image must be the same size as the original image, and the white area in the mask image is the area that needs to be redrawn. Below is a comparison of the mask image that needs to be redrawn for the cat image and the original image:
+Through the above code, we can obtain the mask image. In this process, we need to pay attention to the fact that the mask image must be the same size as the original image, and the white areas in the mask image are the areas that need to be redrawn. Below is a comparison of the mask image that needs to be redrawn for the cat image and the original image:
 
 Original image:
 <p><img src="https://cdn.acedata.cloud/t1tdf9.png" width="300" class="m-auto"></p>
@@ -446,14 +445,14 @@ print("success!")
 
 > Note: The above Python code describes the process of generating the mask. If you want to integrate it into your product, please write the corresponding code in your language based on its principles.
 
-Through the above code, we obtained the mask that needs to be redrawn. Next, we also need to set the parameter `action` to `variation_region`, generate the image ID `image_id` (refer to the content above for obtaining this parameter), and pass in the corresponding mask `mask`. Other parameter information is as follows:
+Through the above code, we obtained the mask `mask` that needs to be redrawn. Next, we also need to set the parameter `action` to `variation_region`, generate the image ID `image_id` (refer to the content above for obtaining this parameter), and pass in the corresponding mask `mask`. Other parameter information is as follows:
 
 - `action`: The behavior of operating on the image, here it is `variation_region`, indicating that a partial redrawing of the image is performed.
 - `prompt`: A description of the partial redrawing of the image (optional parameter).
 - `image_id`: The unique identifier of the image, convenient for partial redrawing of the image.
 - `mask`: The base64 encoding of the mask area corresponding to the image (the image is specified by the above image_id).
 
-Therefore, according to the above rules, we need to set the correct parameters. The parameter `prompt` is a non-mandatory parameter. Here, for the sake of comparison, the prompt for the mask area is set to `A cute cat`. The specific parameter settings are shown in the figure below:
+Therefore, according to the above rules, we need to set the correct parameters. The parameter `prompt` is a non-mandatory parameter. Here, for the sake of comparison, the `prompt` for the mask area is set to `A cute cat`. The specific parameter settings are shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/p0hwrf.png" width="500" class="m-auto"></p>
 
@@ -511,7 +510,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/imagine' \
   "prompt": "A cute cat ",
   "action": "variation_region",
   "image_id": "1265875488702726144",
-  "mask": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wAARCAGaAZoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+f+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiv12/4Jcf8GoX7XX7X+nab8af2y9Tvfgt4GmvZYZPDOpa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m5hJilEcsckeQTzGc81/BhX64/8ABs//AMFu/jD+yJ8efB//AAT1+KKaj4t+FnxK8XWmi+FrFLnNz4P1m/ulijktfMbH2Ka4lH2m2zwZDcxfvfOiugD+ouiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+  "mask": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wAARCAGaAZoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+f+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiv12/4Jcf8GoX7XX7X+nab8af2y9T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fDOrxahYXRimkil8m5hJilEcsckeQTzGc81/BhX64/8ABs//AMFu/jD+yJ8efB//AAT1+KKaj4t+FnxK8XWmi+FrFLnNz4P1m/ulijktfMbH2Ka4lH2m2zwZDcxfvfOiugD+ouiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
 #### Python
 
 ```python
@@ -543,25 +542,25 @@ Since generating images with Midjourney requires some waiting time, this API is 
 
 The following demonstrates the specific calling process.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site [https://webhook.site/](https://webhook.site/ "https://webhook.site/") is used, and opening this site will provide a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site [https://webhook.site/](https://webhook.site/ "https://webhook.site/") is used here. By opening this site, you can obtain a Webhook URL, as shown in the image:
 
 ![](https://cdn.acedata.cloud/srf3tq.png)
 
-Copy this URL to use as a Webhook; the sample here is [https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c](https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c "https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c").
+Copy this URL, and it can be used as a Webhook. The sample here is [https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c](https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c "https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c").
 
 Next, we can set the field `callback_url` to the above Webhook URL and fill in `prompt`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/hclosy.png)
 
-After clicking test, a response with a `task_id` will be received immediately, which identifies the ID of the current generation task, as shown in the image:
+After clicking test, you will immediately receive a response with a `task_id`, which is used to identify the current generation task's ID, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/vkr32a.png" width="300" class="m-auto"></p>
 
-After a moment, when the image generation is complete, you can find that the Webhook URL has received an HTTP request, as shown in the image:
+After a moment, when the image generation is complete, you will find that the Webhook URL has received an HTTP request, as shown in the image:
 
 ![](https://cdn.acedata.cloud/6znvgq.png)
 
-The result is the outcome of the current task, as follows:
+The result is the current task's result, as follows:
 
 ```json
 {
@@ -589,7 +588,7 @@ The result is the outcome of the current task, as follows:
 }
 ```
 
-The `success` field indicates whether the task was executed successfully. If successful, there will also be the same `actions`, `image_id`, `image_url` fields, which are the same as the return results mentioned above, and there is also a `task_id` to identify the task, allowing for the association of the Webhook result with the initial API request.
+The `success` field indicates whether the task was executed successfully. If successful, there will also be the same `actions`, `image_id`, and `image_url` fields, which are the same as the return results mentioned above. Additionally, there is a `task_id` to identify the task, allowing for the association of the Webhook result with the initial API request.
 
 If the image generation fails, the Webhook URL will receive content similar to the following:
 
@@ -604,7 +603,7 @@ If the image generation fails, the Webhook URL will receive content similar to t
 }
 ```
 
-Here, the `success` field will be `false`, and there will also be `error.code` and `error.message` fields describing the details of the task error. The Webhook server can process according to the corresponding result.
+Here, the `success` field will be `false`, and there will also be `error.code` and `error.message` fields describing the details of the task error. The Webhook server can process the results accordingly.
 
 ## Streaming Output
 
@@ -612,11 +611,11 @@ Midjourney officially has progress when generating images. Initially, it is a bl
 
 Therefore, the process of generating an image can be roughly divided into the stages of "sending command" -> "starting image generation (multiple iterations gradually becoming clear)" -> "image generation complete."
 
-Without enabling streaming output, this API from initiating the request to returning the result actually encompasses the entire process from "sending command" to "image generation complete," including the image generation process in between. Since Midjourney itself generates images relatively slowly, the entire process may take about a minute or longer.
+Without enabling streaming output, this API, from initiating the request to returning the result, actually encompasses the entire process from "sending command" to "image generation complete," with the image generation process included. Since Midjourney itself generates images relatively slowly, the entire process may take about a minute or longer.
 
 To provide a better user experience, this API supports streaming output, meaning that when "starting image generation," it begins to return results. Whenever there is a change in drawing progress, the results will be streamed until the image generation is complete.
 
-If you want to return responses in a streaming manner, you can change the `accept` parameter in the request header to `application/x-ndjson`, but the calling code needs to be modified accordingly to support streaming responses.
+If you want to return responses in a streaming manner, you can change the `accept` parameter in the request header to `application/x-ndjson`. However, the calling code needs to be modified accordingly to support streaming responses.
 
 Python sample code:
 
@@ -680,6 +679,6 @@ The results of these examples are all similar.
 
 Please note that there is a field called progress in the streaming output result, which indicates the generation progress, ranging from 0 to 100. If needed, you can display this information on the page.
 
-> Note: When the generation is not fully completed, the actions field is empty, indicating that further processing operations cannot be performed on the intermediate image. After the generation is complete, the image_url generated during the process will be destroyed.
+> Note: When the generation is not fully completed, the actions field is empty, indicating that further processing operations cannot be performed on the intermediate image. After the generation is completed, the image_url generated during the process will be destroyed.
 
 Additionally, you can combine the streaming results with asynchronous callbacks by specifying the request header accept=application/x-ndjson and the request body callback_url, then the callback_url can receive multiple POST requests of streaming results.
