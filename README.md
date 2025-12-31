@@ -9,7 +9,7 @@ API home page: [Ace Data Cloud - Midjourney generation](https://platform.acedata
 
 Midjourney is a very powerful AI drawing tool that can generate exquisite images in just one or two minutes by simply inputting keywords. Midjourney stands out in the industry with its outstanding drawing capabilities, and it has been widely applied across various industries and fields, with its influence becoming increasingly significant.
 
-This document mainly introduces the usage process of the Imagine operation in the Midjourney API, allowing us to easily generate the required images through text.
+This document mainly introduces the usage process of the Imagine operation in the Midjourney API, which allows us to easily generate the required images through text.
 
 ### Application Process
 
@@ -17,7 +17,7 @@ To use the Midjourney Imagine API, you can first go to the [Midjourney Imagine A
 
 ![](https://cdn.acedata.cloud/nyq0xz.png)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 When applying for the first time, there will be a free quota provided, allowing you to use the API for free.
 
@@ -128,7 +128,7 @@ Open `image_url`, the newly generated image is as follows:
 
 As can be seen, for the previous image in the upper right corner, we have again obtained four similar photos.
 
-At this point, we can select one of them for a refined enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4` and use the current image's ID via `image_id`.
+At this point, we can select one of them for a refined enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4` and use `image_id` to pass the current image's ID again.
 
 ![](https://cdn.acedata.cloud/jk9ohl.png)
 
@@ -175,16 +175,16 @@ At the same time, note that the `actions` contain several operations that can be
 - `upscale_4x`: Enlarges the image by 4 times, resulting in a 4x high-definition image.
 - `zoom_out_2x`: Reduces the image by 2 times (filling surrounding areas).
 - `zoom_out_1_5x`: Reduces the image by 1.5 times (filling surrounding areas).
-- `pan_left`: Performs a left shift operation on the image.
-- `pan_right`: Performs a right shift operation on the image.
-- `pan_up`: Performs an upward shift operation on the image.
-- `pan_down`: Performs a downward shift operation on the image.
+- `pan_left`: Shifts the image to the left.
+- `pan_right`: Shifts the image to the right.
+- `pan_up`: Shifts the image upwards.
+- `pan_down`: Shifts the image downwards.
 
 You can continue to pass the corresponding transformation commands for continuous image generation operations as described above.
 
 ### Image Rewrite (Base Image)
 
-This API also supports image rewriting, commonly known as base image, where we can input an image URL and the description text to be rewritten, and the API will return the rewritten image.
+This API also supports image rewriting, commonly known as base image, where we can input an image URL and a description of what needs to be rewritten, and the API will return the rewritten image.
 
 > Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
 
