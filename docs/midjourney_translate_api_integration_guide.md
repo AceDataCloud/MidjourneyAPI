@@ -6,17 +6,17 @@ This document will provide detailed instructions on integrating the Midjourney T
 
 ## Application Process
 
-To use the Midjourney Translate API, you need to first go to the application page [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image:
+To use the Midjourney Translate API, you need to first apply for the corresponding service on the application page [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34). After entering the page, click the "Acquire" button, as shown in the image:
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
-If you have not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use the API for free.
+A free quota will be provided for first-time applicants, allowing you to use the API for free.
 
 ## Request Example
 
-Let's take a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: 精致，无暇，洁白的天使, and we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
+Let's take a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: 精致，无暇，洁白的天使. Next, we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
 
 ### Setting Request Headers and Request Body
 
@@ -115,4 +115,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Translate API to translate uploaded Chinese descriptive terms into English descriptive terms. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Translate API to translate uploaded Chinese descriptive terms into English descriptive terms. We hope this document helps you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
