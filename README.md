@@ -95,7 +95,7 @@ Next, we will try to perform further operations on the currently generated photo
 
 ![](https://cdn.acedata.cloud/ia7vpw.png)
 
-The result obtained this time is as follows:
+At this point, the result obtained is as follows:
 ```json
 {
   "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234201336543969401/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_10dc56a7-ec16-4bac-878e-2338f2ae5f5d.png?ex=662fdf10&is=662e8d90&hm=9aec96bca35ae20b6f9ab536101b9c4ea255eb6216cbf7000ac554937da071f3&width=1024&height=1024",
@@ -122,13 +122,13 @@ The result obtained this time is as follows:
 }
 ```
 
-Open `image_url`, the newly generated image is shown below:
+Open `image_url`, the newly generated image is as follows:
 
 ![](https://cdn.acedata.cloud/4g6r09.png)
 
-As can be seen, for the previous image in the upper right corner, we have again obtained four similar photos.
+As we can see, for the previous image in the upper right corner, we have again obtained four similar photos.
 
-At this point, we can select one of them for a detailed upscale operation, for example, if we choose the fourth one, we can pass `action` as `upscale4`, and then pass the current image's ID again through `image_id`.
+At this point, we can select one of them for a detailed enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4`, and then pass the current image's ID again using `image_id`.
 
 ![](https://cdn.acedata.cloud/jk9ohl.png)
 
@@ -163,7 +163,7 @@ The returned result is as follows:
 }
 ```
 
-The `image_url` is shown as follows:
+Among them, `image_url` is shown as follows:
 
 ![](https://cdn.acedata.cloud/jfndfo.png)
 
@@ -180,13 +180,13 @@ At the same time, note that the `actions` also include several operations that c
 - `pan_up`: Shifts the image upwards.
 - `pan_down`: Shifts the image downwards.
 
-You can continue to pass the corresponding transformation commands for continuous image generation operations as described above.
+You can continue to follow the above process to pass the corresponding transformation commands for continuous image generation operations.
 
 ### Image Rewrite (Base Image)
 
-This API also supports image rewriting, commonly known as base image, where we can input an image URL and the description text to be rewritten, and the API will return the rewritten image.
+This API also supports image rewriting, commonly known as base image. We can input an image URL and the description text that needs to be rewritten, and the API will return the rewritten image.
 
-> Note: The input image URL must be a pure image, not a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
+> Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
 
 For example, we have an image of a sunset on a highway, with some trees and buildings beside the road, as shown:
 
@@ -198,13 +198,14 @@ Now we want to rewrite it to be next to a beach, with a car parked by the roadsi
 https://cdn.acedata.cloud/v014oc.png an illustration of a car parked on the beach --iw 2
 ```
 
-As can be seen, the beginning of our prompt is an HTTPS image link, followed by a space, and then the content of the prompt text. Here we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
+As we can see, the beginning of our prompt is an HTTPS image link, followed by a space, and then the content of the prompt text. Here we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
 
 We can pass the above content as a whole to the `prompt` field, as shown:
 
 ![](https://cdn.acedata.cloud/pfcoy1.png)
 
 The output result is as follows:
+```
 ```bash
 {
   "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234427310434947145/1234539663515975690/atmateosa5693_An_illustration_of_a_car_parked_on_the_beach_id26_cc8650ec-7e4b-4685-8911-78172430d8a7.png?ex=66311a28&is=662fc8a8&hm=c39707a1f22bc7f12874060ea6ed58ba37c188139ccc9a13c61ed9f37e66ea74&width=1456&height=816",
