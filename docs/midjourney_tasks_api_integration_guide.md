@@ -20,7 +20,7 @@ There is a free quota available for first-time applicants, allowing you to use t
 
 ## Request Example
 
-The Midjourney Tasks API can be used to query the results of both the Midjourney Imagine API and the Midjourney Describe API. For information on how to use the Midjourney Imagine API, please refer to the document [Midjourney Imagine API](https://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). For information on how to use the Midjourney Describe API, please refer to [Midjourney Describe API](https://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
+The Midjourney Tasks API can be used to query the results of both the Midjourney Imagine API and the Midjourney Describe API. For information on how to use the Midjourney Imagine API, please refer to the documentation [Midjourney Imagine API](https://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). For information on how to use the Midjourney Describe API, please refer to [Midjourney Describe API](https://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
 
 We will take a task ID returned by the Midjourney Imagine API as an example to demonstrate how to use this API. Suppose we have a task ID: 7489df4c-ef03-4de0-b598-e9a590793434, and we will demonstrate how to pass in a task ID.
 
@@ -47,7 +47,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-It can be seen that various language codes have been automatically generated on the right side of the page, as shown in the image:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" class="m-auto"></p>
 
@@ -90,7 +90,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the detailed information of the image task. For example:
+After a successful request, the API will return the detailed information of the image task. For example:
 
 ```json
 {
@@ -142,14 +142,14 @@ The returned result contains multiple fields, with the request field being the r
 
 - `id`: The ID of the image generation task, used to uniquely identify this image generation task.
 - `type`: If type = imagine, it represents the result of the Midjourney Imagine API; if type = describe, it represents the result of the Midjourney Describe API.
-- `job_id`: The ID of the image query task generated this time, used to uniquely identify this image query task.
+- `job_id`: The ID of the image query task generated, used to uniquely identify this image query task.
 - `image_id`: The unique identifier of the image task being queried, which needs to be passed when performing transformation operations on the image next time.
 - `request`: The request information in the image query task.
 - `response`: The return information in the image query task.
 
 ## Batch Query Operation
 
-This is for querying the details of image tasks for multiple task IDs. Unlike the above, the action needs to be selected as retrieve_batch.
+This is for querying the details of multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
 
 **Request Body** includes:
 
@@ -265,9 +265,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result contains multiple fields, among which items include the specific details of batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
+The returned result contains multiple fields, among which `items` includes the specific details of the batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
 
-- `items`, all specific details of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of the batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of batch image tasks queried here.
 
 #### CURL
@@ -332,4 +332,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Tasks API to query the specific details of single or batch image tasks. We hope this document can help you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Tasks API to query the specific details of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
