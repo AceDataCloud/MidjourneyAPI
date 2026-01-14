@@ -27,7 +27,7 @@ Next, you can fill in the corresponding content on the interface, as shown in th
 
 ![](https://cdn.acedata.cloud/d01h9f.png)
 
-When using this interface for the first time, we need to fill in at least two pieces of information: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents wanting to draw a Lamborghini speeding inside a volcano.
+When using this interface for the first time, we need to fill in at least two pieces of information: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents the desire to draw a Lamborghini speeding inside a volcano.
 
 You can also notice that there is corresponding code generation on the right side; you can copy the code to run it directly or click the "Try" button for testing.
 
@@ -73,15 +73,15 @@ After the call, we find the returned result as follows:
 
 The returned result contains multiple fields, described as follows:
 
-- `task_id`, the ID of the task that generated this image, used to uniquely identify this image generation task.
-- `image_id`, the unique identifier of the image, which needs to be passed when performing transformation operations on the image next time.
-- `image_url`, the URL of the thumbnail, which can be opened directly to view the generated effect.
+- `task_id`: The ID of the task that generated this image, used to uniquely identify this image generation task.
+- `image_id`: The unique identifier of the image, which needs to be passed when performing transformation operations on the image next time.
+- `image_url`: The URL of the thumbnail, which can be opened directly to view the generated effect.
 - `image_width`: The pixel width of the thumbnail.
 - `image_height`: The pixel height of the thumbnail.
-- `raw_image_url`: The URL of the original image, which is the same as the thumbnail content but is higher definition, loading slower.
+- `raw_image_url`: The URL of the original image, which is the same as the thumbnail content but in higher definition, loading speed may be slower.
 - `raw_image_width`: The pixel width of the original image.
 - `raw_image_height`: The pixel height of the original image.
-- `actions`, a list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. So `upscale1` represents the enlargement operation on the first image in the upper left corner, and `variation3` represents the transformation operation based on the third image in the lower left corner.
+- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. Therefore, `upscale1` represents the enlargement operation on the first image in the top left corner, and `variation3` represents the transformation operation based on the third image in the bottom left corner.
 
 Opening the link corresponding to `image_url` or `raw_image_url`, you can find as shown in the figure.
 
@@ -91,11 +91,11 @@ It can be seen that a 2x2 preview image has been generated here. So far, the fir
 
 ### Image Upscaling and Transformation
 
-Next, we will try to perform further operations on the currently generated photo. For example, if we think the second image in the upper right corner is quite good, but we want to make some transformation adjustments, we can further fill in `action` as `variation2` and pass the `image_id`:
+Next, we will try to perform further operations on the currently generated photo. For example, if we think the second image in the top right corner is quite good, but we want to make some transformation adjustments, we can further fill in `action` as `variation2` and pass the `image_id`:
 
 ![](https://cdn.acedata.cloud/ia7vpw.png)
 
-At this point, the result obtained is as follows:
+The result obtained this time is as follows:
 ```json
 {
   "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234201336543969401/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_10dc56a7-ec16-4bac-878e-2338f2ae5f5d.png?ex=662fdf10&is=662e8d90&hm=9aec96bca35ae20b6f9ab536101b9c4ea255eb6216cbf7000ac554937da071f3&width=1024&height=1024",
@@ -175,18 +175,18 @@ At the same time, note that the `actions` contain several operations that can be
 - `upscale_4x`: Enlarges the image by 4 times, resulting in a 4x high-definition image.
 - `zoom_out_2x`: Reduces the image by 2 times (filling surrounding areas).
 - `zoom_out_1_5x`: Reduces the image by 1.5 times (filling surrounding areas).
-- `pan_left`: Shifts the image to the left.
-- `pan_right`: Shifts the image to the right.
-- `pan_up`: Shifts the image upwards.
-- `pan_down`: Shifts the image downwards.
+- `pan_left`: Performs a left shift operation on the image.
+- `pan_right`: Performs a right shift operation on the image.
+- `pan_up`: Performs an upward shift operation on the image.
+- `pan_down`: Performs a downward shift operation on the image.
 
-You can continue to pass the corresponding transformation commands for continuous image generation operations as described above.
+You can continue to pass the corresponding transformation commands for continuous image generation operations according to the above process.
 
 ### Image Rewrite (Base Image)
 
 This API also supports image rewriting, commonly known as base image, where we can input an image URL and the description text to be rewritten, and the API will return the rewritten image.
 
-> Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
+> Note: The input image URL must be a pure image, not a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
 
 For example, we have an image of a sunset on a highway, with some trees and buildings beside the road, as shown:
 
@@ -237,7 +237,7 @@ At this point, we have obtained the following generated image:
 
 ![](https://cdn.acedata.cloud/1vwkuv.png)
 
-As we can see, while maintaining the overall style and composition of the original image, the entire scene has changed to be next to the beach, and a car has appeared on the road, which is the Prompt with Image.
+As we can see, while maintaining the overall style and composition of the original image, the entire scene has changed to be next to the beach, and a car has appeared on the road. This is Prompt with Image.
 
 ### Image Fusion
 
@@ -292,7 +292,7 @@ We have obtained the following result:
 
 As we can see, we have successfully achieved image fusion.
 
-> Note: The image fusion can support up to 5 image URLs as input, meaning it can support the fusion of up to 5 images, with the input format as above.
+> Note: The image fusion can support a maximum of 5 image URLs as input, meaning it can support the fusion of up to 5 images, with the input format as above.
 
 
 ## More
