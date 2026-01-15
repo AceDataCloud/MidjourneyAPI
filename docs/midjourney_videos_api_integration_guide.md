@@ -10,18 +10,18 @@ To use the API, you first need to apply for the corresponding service on the [Mi
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota available for you to use the API for free.
+When applying for the first time, there will be a free quota available for you to use the API for free.
 
 ## Basic Usage
 
-First, understand the basic usage method, which involves inputting the prompt `prompt`, the action `action`, and the array of reference images for the first and last frames `image_url` to obtain the processed result. You first need to simply pass a field `action` with the value `generate`, which mainly includes two actions: generate video (`generate`), extend video (`extend`). The specific content is as follows:
+First, understand the basic usage method, which involves inputting the prompt `prompt`, the action `action`, and the array of reference images for the first and last frames `image_url` to obtain the processed result. You first need to simply pass a field `action` with the value `generate`, which mainly includes two actions: generate video (`generate`) and extend video (`extend`). The specific content is as follows:
 
 <p><img src="https://cdn.acedata.cloud/pi72m9.png" width="500" class="m-auto"></p>
 
 Here, we can see that we have set the Request Headers, including:
 
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
-- `authorization`: the key to call the API, which can be directly selected after application.
+- `authorization`: the key to call the API, which can be directly selected after applying.
 
 Additionally, the Request Body is set, including:
 
@@ -29,18 +29,18 @@ Additionally, the Request Body is set, including:
 - `end_image_url`: optional, specifies the reference image for the last frame of the generated video.
 - `video_id`: the video ID that needs to be specified when extending the video.
 - `video_index`: specifies which specific video from the `video_id` when extending the video, with the index starting from 0, defaulting to 0.
-- `action`: the action of this video generation task, mainly including two actions: generate video (`generate`), extend video (`extend`).
+- `action`: the action of this video generation task, mainly including two actions: generate video (`generate`) and extend video (`extend`).
 - `prompt`: the prompt.
-- `mode`: the speed mode for video generation, default is fast.
-- `resolution`: the video clarity, default is 720p.
-- `loop`: whether to generate a loop video, default is false.
+- `mode`: the speed mode for video generation, defaulting to fast.
+- `resolution`: the video clarity, defaulting to 720p.
+- `loop`: whether to generate a loop video, defaulting to false.
 - `callback_url`: the URL to receive the callback result.
 
-After selection, you can find that the corresponding code is also generated on the right side, as shown in the image below:
+After selection, you can see that the corresponding code is generated on the right side, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -70,7 +70,7 @@ The returned result contains multiple fields, described as follows:
 - `video_id`: the video ID of the video generation task at this time.
 - `video_urls`: the array of video links of the video generation task at this time.
 
-We can see that we have obtained satisfactory video information, and we only need to obtain the generated Midjourney video from the video link address in `video_urls`.
+We can see that we have obtained satisfactory video information, and we only need to retrieve the generated Midjourney video using the video link address from `video_urls`.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -109,7 +109,7 @@ An example of the filled-in content is as follows:
 
 <p><img src="https://cdn.acedata.cloud/855hnj.png" width="500" class="m-auto"></p>
 
-After filling in, the code is automatically generated as follows:
+After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/p58w39.png" width="500" class="m-auto"></p>
 
@@ -166,13 +166,13 @@ The overall process is: when the client initiates a request, an additional `call
 
 Let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used, and opening this site will provide a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used, and opening this site will provide a Webhook URL, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/lali6d.png" width="500" class="m-auto"></p>
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
-Next, we can set the `callback_url` field to the above Webhook URL and fill in the corresponding parameters, as shown in the image:
+Next, we can set the `callback_url` field to the above Webhook URL and fill in the corresponding parameters, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/vk0l0a.png" width="500" class="m-auto"></p>
 
@@ -184,7 +184,7 @@ Clicking run, we can find that an immediate result is obtained, as follows:
 }
 ```
 
-After a moment, we can observe the generated video result at `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, as shown in the image:
+After a moment, we can observe the generated video result at `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/7hcuw8.png" width="500" class="m-auto"></p>
 
