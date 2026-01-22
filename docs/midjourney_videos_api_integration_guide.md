@@ -4,24 +4,24 @@ This article will introduce a Midjourney Videos API integration guide, which all
 
 ## Application Process
 
-To use the API, you first need to apply for the corresponding service on the [Midjourney Videos API](https://platform.acedata.cloud/documents/midjourney-videos) page. After entering the page, click the "Acquire" button, as shown in the image below:
+To use the API, you need to first apply for the corresponding service on the [Midjourney Videos API](https://platform.acedata.cloud/documents/midjourney-videos) page. After entering the page, click the "Acquire" button, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-When applying for the first time, there will be a free quota available for you to use the API for free.
+Upon your first application, there will be a free quota available for you to use the API for free.
 
 ## Basic Usage
 
-First, understand the basic usage method, which involves inputting the prompt `prompt`, the action `action`, and the array of reference images for the first and last frames `image_url` to obtain the processed result. You first need to simply pass a field `action` with the value `generate`, which mainly includes two actions: generate video (`generate`) and extend video (`extend`). The specific content is as follows:
+First, understand the basic usage method, which involves inputting the prompt `prompt`, the action `action`, and the array of reference images for the first and last frames `image_url` to obtain the processed result. You first need to simply pass a field `action` with the value `generate`, which mainly includes two actions: generate video (`generate`), extend video (`extend`). The specific content is as follows:
 
 <p><img src="https://cdn.acedata.cloud/pi72m9.png" width="500" class="m-auto"></p>
 
 Here, we can see that we have set the Request Headers, including:
 
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
-- `authorization`: the key to call the API, which can be directly selected after applying.
+- `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, the Request Body is set, including:
 
@@ -29,7 +29,7 @@ Additionally, the Request Body is set, including:
 - `end_image_url`: optional, specifies the reference image for the last frame of the generated video.
 - `video_id`: the video ID that needs to be specified when extending the video.
 - `video_index`: specifies which specific video from the `video_id` when extending the video, with the index starting from 0, defaulting to 0.
-- `action`: the action of this video generation task, mainly including two actions: generate video (`generate`) and extend video (`extend`).
+- `action`: the action of this video generation task, mainly including two actions: generate video (`generate`), extend video (`extend`).
 - `prompt`: the prompt.
 - `mode`: the speed mode for video generation, defaulting to fast.
 - `resolution`: the video clarity, defaulting to 720p.
@@ -40,7 +40,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the above image, and we get the following result:
 
 ```json
 {
@@ -70,7 +70,7 @@ The returned result contains multiple fields, described as follows:
 - `video_id`: the video ID of the video generation task at this time.
 - `video_urls`: the array of video links of the video generation task at this time.
 
-We can see that we have obtained satisfactory video information, and we only need to retrieve the generated Midjourney video using the video link address from `video_urls`.
+We can see that we have obtained satisfactory video information, and we only need to obtain the generated Midjourney video using the video link address from `video_urls`.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -96,7 +96,7 @@ At this point, you can see that the ID of the video from the previous text is:
 "video_id": "1751816807896311"
 ```
 
-> Note that the `video_id` here is the ID of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+> Note that the `video_id` here is the ID of the video generated after creation. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
 
 Next, you must fill in the prompt for the next step to customize the video generation, specifying the following content:
 
@@ -109,7 +109,7 @@ An example of the filled-in content is as follows:
 
 <p><img src="https://cdn.acedata.cloud/855hnj.png" width="500" class="m-auto"></p>
 
-After filling it out, the code is automatically generated as follows:
+After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/p58w39.png" width="500" class="m-auto"></p>
 
@@ -137,7 +137,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that you will get a result, as follows:
+Clicking run, you can find that a result will be obtained, as follows:
 ```json
 {
     "image_url": "https://storage.fonedis.cc/upload_1751817471047011172.png",
@@ -162,21 +162,21 @@ It can be seen that the result content is consistent with the above text, which 
 
 Since the generation time of the Midjourney Videos API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
 Let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used, and opening this site will provide a Webhook URL, as shown in the figure:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, a public Webhook sample website https://webhook.site/ is used. By opening this website, you can obtain a Webhook URL, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/lali6d.png" width="500" class="m-auto"></p>
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
-Next, we can set the `callback_url` field to the above Webhook URL and fill in the corresponding parameters, as shown in the figure:
+Next, we can set the `callback_url` field to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/vk0l0a.png" width="500" class="m-auto"></p>
 
-Clicking run, we can find that an immediate result is obtained, as follows:
+Clicking run, you can find that an immediate result is obtained, as follows:
 
 ```
 {

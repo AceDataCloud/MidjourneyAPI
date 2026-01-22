@@ -20,10 +20,10 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here, we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response you want to receive, filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be selected directly after application.
 
-Additionally, we set the Request Body, including:
+Additionally, the Request Body is set, including:
 
 - `mask`: can specify the mask position of the image area for editing and regeneration.
 - `split_images`: splits the generated image into multiple images, returned through the sub_image_urls field. By default, it is false.
@@ -37,7 +37,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/9wed3b.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -71,7 +71,7 @@ The returned result contains multiple fields, described as follows:
 - `image_height`: the height of the generated image result.
 - `progress`: the progress field of the image editing generation task.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated image using the image link address from `image_url` in the result.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated image using the image link address from `image_url`.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -92,7 +92,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 Since the time taken by the Midjourney Edits API to generate is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated video will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
@@ -102,11 +102,11 @@ First, the Webhook callback is a service that can receive HTTP requests, and dev
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
-Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the image below:
+Next, we can set the `callback_url` field to the above Webhook URL and fill in the corresponding parameters, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" class="m-auto"></p>
 
-Clicking run, we can find that we immediately receive a result, as follows:
+Clicking run, we can see that we immediately receive a result, as follows:
 
 ```
 {
@@ -167,4 +167,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Edits API to edit images by inputting prompts. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Edits API to edit images by inputting prompts. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
