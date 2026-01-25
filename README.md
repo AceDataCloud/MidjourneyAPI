@@ -27,7 +27,7 @@ Next, you can fill in the corresponding content on the interface, as shown in th
 
 ![](https://cdn.acedata.cloud/d01h9f.png)
 
-When using this interface for the first time, we need to fill in at least two pieces of content: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents drawing a Lamborghini speeding inside a volcano.
+When using this interface for the first time, we need to fill in at least two pieces of information: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents the desire to draw a Lamborghini speeding inside a volcano.
 
 You can also notice that there is corresponding code generation on the right side; you can copy the code to run it directly or click the "Try" button for testing.
 
@@ -81,9 +81,9 @@ The returned result contains multiple fields, described as follows:
 - `raw_image_url`: The URL of the original image, which is the same as the thumbnail content but in higher definition, loading speed may be slower.
 - `raw_image_width`: The pixel width of the original image.
 - `raw_image_height`: The pixel height of the original image.
-- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. So `upscale1` represents enlarging the first image in the top left corner, and `variation3` represents transforming based on the third image in the bottom left corner.
+- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. Therefore, `upscale1` represents the enlargement operation on the first image in the top left corner, and `variation3` represents the transformation operation based on the third image in the bottom left corner.
 
-Opening the link corresponding to `image_url` or `raw_image_url`, you can find as shown in the figure.
+By opening the link corresponding to `image_url` or `raw_image_url`, you can find the result as shown in the figure.
 
 ![](https://cdn.acedata.cloud/qr2iyj.png)
 
@@ -175,18 +175,18 @@ At the same time, note that the `actions` contain several operations that can be
 - `upscale_4x`: Enlarges the image by 4 times, resulting in a 4x high-definition image.
 - `zoom_out_2x`: Reduces the image by 2 times (filling surrounding areas).
 - `zoom_out_1_5x`: Reduces the image by 1.5 times (filling surrounding areas).
-- `pan_left`: Performs a left shift operation on the image.
-- `pan_right`: Performs a right shift operation on the image.
-- `pan_up`: Performs an upward shift operation on the image.
-- `pan_down`: Performs a downward shift operation on the image.
+- `pan_left`: Shifts the image to the left.
+- `pan_right`: Shifts the image to the right.
+- `pan_up`: Shifts the image upwards.
+- `pan_down`: Shifts the image downwards.
 
-You can continue to pass the corresponding transformation commands for continuous image generation operations according to the above process.
+You can continue to pass the corresponding transformation commands for continuous image generation operations as described above.
 
 ### Image Rewrite (Base Image)
 
 This API also supports image rewriting, commonly known as base image, where we can input an image URL and the description text to be rewritten, and the API will return the rewritten image.
 
-> Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
+> Note: The input image URL must be a pure image, not a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
 
 For example, we have an image of a sunset on a highway, with some trees and buildings beside the road, as shown:
 
