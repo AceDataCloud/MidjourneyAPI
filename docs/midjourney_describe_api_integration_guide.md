@@ -2,7 +2,7 @@
 
 The main function of the Midjourney Describe API is to obtain descriptions of images by uploading them. To use this API, you only need to provide the image file URL, and the API will return a detailed description of the image. High-quality image descriptions can be obtained without complicated parameter settings.
 
-It supports various image formats: whether it's JPEG, PNG, or GIF, mainstream image formats can be easily recognized and processed.
+It supports various image formats: whether it's JPEG, PNG, or GIF, all mainstream image formats can be easily recognized and processed.
 
 This document will provide a detailed introduction to the integration instructions for the Midjourney Describe API, helping you easily integrate and fully utilize the powerful features of this API. With the Midjourney Describe API, you can easily automate image descriptions and improve business efficiency.
 
@@ -41,7 +41,7 @@ Set it as shown in the image below:
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/8edj9z.png" width="400" class="m-auto"></p>
 
@@ -82,7 +82,7 @@ print(response.json())
 
 ### Response Example
 
-Upon a successful request, the API will return 4 description messages for the image. For example:
+After a successful request, the API will return 4 description messages for the image. For example:
 
 ```json
 {
