@@ -33,7 +33,7 @@ We will take a task ID returned by the Midjourney Imagine API as an example to d
 **Request Headers** include:
 
 - `accept`: Specifies that the response should be in JSON format, set to `application/json`.
-- `authorization`: The key to call the API, which can be selected directly after application.
+- `authorization`: The key for calling the API, which can be selected directly after application.
 
 **Request Body** includes:
 
@@ -265,9 +265,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result contains multiple fields, among which items include the specific details of batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
+The returned result contains multiple fields, among which `items` includes the specific details of the batch image tasks. The specific information of each image task is the same as the fields mentioned above, and the field information is as follows.
 
-- `items`, all specific details of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of the batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of batch image tasks queried here.
 
 #### CURL
