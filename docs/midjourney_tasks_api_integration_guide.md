@@ -14,7 +14,7 @@ Finally, go to the Tasks API page [Midjourney Tasks API](https://platform.acedat
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
-If you have not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 There is a free quota available for first-time applicants, allowing you to use the API for free.
 
@@ -90,7 +90,7 @@ print(response.text)
 
 ### Response Example
 
-After a successful request, the API will return the detailed information of the image task. For example:
+Upon successful request, the API will return the detailed information of the image task. For example:
 
 ```json
 {
