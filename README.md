@@ -1,6 +1,6 @@
 # Midjourney generation API
 
-Midjourney image generation and processing service can generate and rewrite high-quality images.
+Midjourney high-quality image generation and processing service.
 
 API home page: [Ace Data Cloud - Midjourney generation](https://platform.acedata.cloud/services/d87e5e99-b797-4ade-9e73-b896896b0461)
 
