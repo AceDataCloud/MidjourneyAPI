@@ -19,7 +19,7 @@ To use the Midjourney Imagine API, you can first go to the [Midjourney Imagine A
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
 
-Upon the first application, there will be a free quota provided, allowing you to use the API for free.
+When applying for the first time, there will be a free quota available for you to use the API for free.
 
 ### Basic Usage
 
@@ -27,9 +27,9 @@ Next, you can fill in the corresponding content on the interface, as shown in th
 
 ![](https://cdn.acedata.cloud/d01h9f.png)
 
-When using this interface for the first time, we need to fill in at least two pieces of content: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents drawing a Lamborghini speeding inside a volcano.
+When using this interface for the first time, we need to fill in at least two pieces of information: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `prompt`, which is the description of the image we want to generate. It is recommended to describe it in English for more accurate and better results. Here we used the example content `Lamborghini speeds inside a volcano`, which represents drawing a Lamborghini speeding inside a volcano.
 
-You can also notice that there is corresponding code generation on the right side; you can copy the code to run directly or click the "Try" button for testing.
+You can also notice that there is corresponding code generation on the right side; you can copy the code to run it directly or click the "Try" button for testing.
 
 Main request parameters:
 
@@ -81,9 +81,9 @@ The returned result contains multiple fields, described as follows:
 - `raw_image_url`: The URL of the original image, which is the same as the thumbnail content but in higher definition, loading speed may be slower.
 - `raw_image_width`: The pixel width of the original image.
 - `raw_image_height`: The pixel height of the original image.
-- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. So `upscale1` represents the enlargement operation on the first image in the top left corner, and `variation3` represents the transformation operation based on the third image in the bottom left corner.
+- `actions`: A list of further operations that can be performed on the generated image. Here, a total of 8 are listed, where `upscale` represents enlargement, and `variation` represents transformation. So `upscale1` represents enlarging the first image in the top left corner, and `variation3` represents transforming based on the third image in the bottom left corner.
 
-By opening the link corresponding to `image_url` or `raw_image_url`, you can find as shown in the figure.
+Opening the link corresponding to `image_url` or `raw_image_url`, you can find as shown in the figure.
 
 ![](https://cdn.acedata.cloud/qr2iyj.png)
 
@@ -128,7 +128,7 @@ Open `image_url`, the newly generated image is as follows:
 
 As can be seen, for the previous image in the upper right corner, we have again obtained four similar photos.
 
-At this point, we can select one of them for a refined enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4` and use `image_id` to pass the current image's ID again.
+At this point, we can select one of them for a refined enlargement operation. For example, if we choose the fourth one, we can pass `action` as `upscale4` and use the current image's ID via `image_id`.
 
 ![](https://cdn.acedata.cloud/jk9ohl.png)
 
@@ -163,7 +163,7 @@ The returned result is as follows:
 }
 ```
 
-Among them, `image_url` is shown as follows:
+The `image_url` is shown as follows:
 
 ![](https://cdn.acedata.cloud/jfndfo.png)
 
@@ -175,18 +175,18 @@ At the same time, note that the `actions` contain several operations that can be
 - `upscale_4x`: Enlarges the image by 4 times, resulting in a 4x high-definition image.
 - `zoom_out_2x`: Reduces the image by 2 times (filling surrounding areas).
 - `zoom_out_1_5x`: Reduces the image by 1.5 times (filling surrounding areas).
-- `pan_left`: Performs a left shift operation on the image.
-- `pan_right`: Performs a right shift operation on the image.
-- `pan_up`: Performs an upward shift operation on the image.
-- `pan_down`: Performs a downward shift operation on the image.
+- `pan_left`: Shifts the image to the left.
+- `pan_right`: Shifts the image to the right.
+- `pan_up`: Shifts the image upwards.
+- `pan_down`: Shifts the image downwards.
 
-You can continue to pass the corresponding transformation commands for continuous image generation operations according to the above process.
+You can continue to pass the corresponding transformation commands for continuous image generation operations.
 
 ### Image Rewrite (Base Image)
 
-This API also supports image rewriting, commonly known as base image. We can input an image URL and the description text that needs to be rewritten, and the API will return the rewritten image.
+This API also supports image rewriting, commonly known as base image, where we can input an image URL and a description of what needs to be rewritten, and the API will return the rewritten image.
 
-> Note: The input image URL must be a pure image, not a webpage displaying an image; otherwise, image rewriting cannot be performed. It is recommended to use an image hosting service to upload and obtain the image URL.
+> Note: The input image URL must be a pure image and cannot be a webpage displaying an image; otherwise, image rewriting will not be possible. It is recommended to use an image hosting service to upload and obtain the image URL.
 
 For example, we have an image of a sunset on a highway, with some trees and buildings beside the road, as shown:
 
@@ -198,14 +198,13 @@ Now we want to rewrite it to be next to a beach, with a car parked by the roadsi
 https://cdn.acedata.cloud/v014oc.png an illustration of a car parked on the beach --iw 2
 ```
 
-As can be seen, the beginning of our prompt is an HTTPS image link, followed by a space, and then the content of the prompt text. Here we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
+As can be seen, the beginning of our prompt is an HTTPS image link, followed by a space, and then the content of the prompt text. Here, we also used some additional advanced parameters, such as `—iw 2` to adjust the weight of the image.
 
 We can pass the above content as a whole to the `prompt` field, as shown:
 
 ![](https://cdn.acedata.cloud/pfcoy1.png)
 
 The output result is as follows:
-```
 ```bash
 {
   "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234427310434947145/1234539663515975690/atmateosa5693_An_illustration_of_a_car_parked_on_the_beach_id26_cc8650ec-7e4b-4685-8911-78172430d8a7.png?ex=66311a28&is=662fc8a8&hm=c39707a1f22bc7f12874060ea6ed58ba37c188139ccc9a13c61ed9f37e66ea74&width=1456&height=816",
