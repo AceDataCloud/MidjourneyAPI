@@ -29,7 +29,7 @@ We will use a Chinese descriptive term as an example to demonstrate how to use t
 
 - `content`: The uploaded Chinese descriptive term.
 
-> Only this one field is needed to complete the translation; please ensure that `content` uses the Chinese descriptive term.
+> Only this one field is needed to complete the translation, please ensure that `content` uses the Chinese descriptive term.
 
 Set it as shown in the image below:
 
@@ -86,7 +86,7 @@ After a successful request, the API will return one descriptive piece of informa
 }
 ```
 
-You can see that the result contains a `content` field, which includes the translated English descriptive term, corresponding to the translation of the Chinese descriptive term.
+As you can see, the result contains a `content` field, which includes the translated English descriptive term, corresponding to the translation of the Chinese descriptive term.
 
 - `content`: Generates the corresponding English descriptive term, which can be used for image generation tasks.
 
