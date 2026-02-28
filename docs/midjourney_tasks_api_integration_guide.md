@@ -90,7 +90,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the detailed information of the image task. For example:
+Upon a successful request, the API will return the detailed information of the image task. For example:
 
 ```json
 {
@@ -138,7 +138,7 @@ Upon successful request, the API will return the detailed information of the ima
 }
 ```
 
-The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. If type = imagine, its result is consistent with the request and return of the Midjourney Imagine API; if type = describe, its result is consistent with the request and return of the Midjourney Describe API. The field descriptions are as follows.
+The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. If type = imagine, the result is consistent with the request and return of the Midjourney Imagine API; if type = describe, the result is consistent with the request and return of the Midjourney Describe API. The field descriptions are as follows.
 
 - `id`: The ID of the image generation task, used to uniquely identify this image generation task.
 - `type`: If type = imagine, it represents the result of the Midjourney Imagine API; if type = describe, it represents the result of the Midjourney Describe API.
