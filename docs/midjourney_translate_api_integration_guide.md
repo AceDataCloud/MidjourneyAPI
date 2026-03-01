@@ -16,7 +16,7 @@ There is a free quota available for first-time applicants, allowing you to use t
 
 ## Request Example
 
-We will use a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: 精致，无暇，洁白的天使 (exquisite, flawless, pure white angel). Next, we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
+Let's take a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: 精致，无暇，洁白的天使. Next, we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
 
 ### Setting Request Headers and Request Body
 
