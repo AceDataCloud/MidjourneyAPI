@@ -4,7 +4,7 @@ This article will introduce a Midjourney Videos API integration guide, which all
 
 ## Application Process
 
-To use the API, you first need to apply for the corresponding service on the [Midjourney Videos API](https://platform.acedata.cloud/documents/midjourney-videos) page. After entering the page, click the "Acquire" button, as shown in the image below:
+To use the API, you need to first apply for the corresponding service on the [Midjourney Videos API](https://platform.acedata.cloud/documents/midjourney-videos) page. After entering the page, click the "Acquire" button, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
@@ -28,19 +28,19 @@ Additionally, the Request Body is set, including:
 - `image_url`: the link to the reference image for the first frame of the generated video.
 - `end_image_url`: optional, specifies the reference image for the last frame of the generated video.
 - `video_id`: the video ID that needs to be specified when extending the video.
-- `video_index`: specifies which specific video of the `video_id` to extend, with the index starting from 0, defaulting to 0.
+- `video_index`: specifies which specific video from the `video_id` when extending the video, with the index starting from 0, defaulting to 0.
 - `action`: the action of this video generation task, mainly including two actions: generate video (`generate`), extend video (`extend`).
 - `prompt`: the prompt.
 - `mode`: the speed mode for video generation, defaulting to fast.
 - `resolution`: the video clarity, defaulting to 720p.
-- `loop`: whether to generate a loop video, defaulting to false.
+- `loop`: whether to generate a looping video, defaulting to false.
 - `callback_url`: the URL to receive the callback result.
 
 After selection, you can see that the corresponding code is generated on the right side, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -70,7 +70,7 @@ The returned result contains multiple fields, described as follows:
 - `video_id`: the video ID of the video generation task at this time.
 - `video_urls`: the array of video links of the video generation task at this time.
 
-We can see that we have obtained satisfactory video information, and we only need to retrieve the generated Midjourney video using the video link address from `video_urls`.
+We can see that we have obtained satisfactory video information, and we only need to obtain the generated Midjourney video using the video link address from `video_urls`.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -96,7 +96,7 @@ At this point, you can see that the ID of the video from the previous text is:
 "video_id": "1751816807896311"
 ```
 
-> Note that the `video_id` here is the ID of the video generated after creation. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+> Note that the `video_id` here is the ID of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
 
 Next, you must fill in the prompt for the next step to customize the video generation, specifying the following content:
 
@@ -109,7 +109,7 @@ An example of the filled-in content is as follows:
 
 <p><img src="https://cdn.acedata.cloud/855hnj.png" width="500" class="m-auto"></p>
 
-After filling in, the code is automatically generated as follows:
+After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/p58w39.png" width="500" class="m-auto"></p>
 
@@ -137,7 +137,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that a result will be obtained, as follows:
+Clicking run, you can find that you will get a result, as follows:
 ```json
 {
     "image_url": "https://storage.fonedis.cc/upload_1751817471047011172.png",
@@ -160,7 +160,7 @@ It can be seen that the result content is consistent with the above text, which 
 
 ## Asynchronous Callback
 
-Due to the relatively long generation time of the Midjourney Videos API, which takes about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the generation time of the Midjourney Videos API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
