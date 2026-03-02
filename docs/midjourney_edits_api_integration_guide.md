@@ -37,7 +37,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/9wed3b.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
