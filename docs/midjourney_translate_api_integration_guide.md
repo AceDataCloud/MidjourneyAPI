@@ -6,7 +6,7 @@ This document will provide detailed instructions on integrating the Midjourney T
 
 ## Application Process
 
-To use the Midjourney Translate API, you need to first apply for the corresponding service on the application page [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34). After entering the page, click the "Acquire" button, as shown in the image:
+To use the Midjourney Translate API, you need to first go to the application page [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image:
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
@@ -16,7 +16,7 @@ There is a free quota available for first-time applicants, allowing you to use t
 
 ## Request Example
 
-Let's take a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: 精致，无暇，洁白的天使. Next, we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
+Let's take a Chinese descriptive term as an example to demonstrate how to use the API. Suppose the Chinese descriptive term is: 精致，无暇，洁白的天使, and we will demonstrate how to upload the Chinese descriptive term and obtain the English descriptive term.
 
 ### Setting Request Headers and Request Body
 
@@ -86,9 +86,9 @@ After a successful request, the API will return one descriptive piece of informa
 }
 ```
 
-As you can see, the result contains a `content` field, which includes the translated English descriptive term, corresponding to the translation of the Chinese descriptive term.
+You can see that the result contains a `content` field, which includes the translated English descriptive term, corresponding to the translation of the Chinese descriptive term.
 
-- `content`: Generates the corresponding English descriptive term, which can be used for image generation tasks.
+- `content`, generates the corresponding English descriptive term, which can be used for image generation tasks.
 
 ## Error Handling
 
