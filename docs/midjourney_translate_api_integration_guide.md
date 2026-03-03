@@ -10,7 +10,7 @@ To use the Midjourney Translate API, you need to first go to the application pag
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
-If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you have not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 There is a free quota available for first-time applicants, allowing you to use the API for free.
 
@@ -115,4 +115,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Midjourney Translate API to translate uploaded Chinese descriptive terms into English descriptive terms. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Midjourney Translate API to translate uploaded Chinese descriptive terms into English descriptive terms. We hope this document helps you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
