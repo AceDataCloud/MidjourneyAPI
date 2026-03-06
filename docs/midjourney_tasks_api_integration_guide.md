@@ -16,7 +16,7 @@ Finally, go to the Tasks API page [Midjourney Tasks API](https://platform.acedat
 
 If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use this API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ## Request Example
 
@@ -47,7 +47,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
+It can be seen that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" class="m-auto"></p>
 
@@ -90,7 +90,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the detailed information of the image task. For example:
+Upon a successful request, the API will return the detailed information of the image task shown here. For example:
 
 ```json
 {
@@ -142,14 +142,14 @@ The returned result contains multiple fields, with the request field being the r
 
 - `id`: The ID of the image generation task, used to uniquely identify this image generation task.
 - `type`: If type = imagine, it represents the result of the Midjourney Imagine API; if type = describe, it represents the result of the Midjourney Describe API.
-- `job_id`: The ID of the image query task generated, used to uniquely identify this image query task.
-- `image_id`: The unique identifier of the image task being queried, which needs to be passed when performing transformation operations on the image next time.
-- `request`: The request information in the image task query.
-- `response`: The return information in the image task query.
+- `job_id`: The ID of the image query task generated this time, used to uniquely identify this image query task.
+- `image_id`: The unique identifier of the image task being queried here, which needs to be passed as a parameter when performing transformation operations on the image next time.
+- `request`: The request information in the image query task.
+- `response`: The return information in the image query task.
 
 ## Batch Query Operation
 
-This is for querying the details of multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
+This is for querying the details of image tasks for multiple task IDs. Unlike the above, the action needs to be selected as retrieve_batch.
 
 **Request Body** includes:
 
