@@ -10,7 +10,7 @@ To use the API, you first need to apply for the corresponding service on the [Mi
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota provided, allowing you to use the API for free.
+Upon your first application, there will be a free quota available for you to use the API at no cost.
 
 ## Basic Usage
 
@@ -20,8 +20,8 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here, we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
-- `authorization`: the key to call the API, which can be directly selected after application.
+- `accept`: the format of the response you want to receive, filled in as `application/json`, which means JSON format.
+- `authorization`: the key to call the API, which can be selected directly after application.
 
 Additionally, the Request Body is set, including:
 
@@ -92,7 +92,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 Since the time taken by the Midjourney Edits API to generate is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated video will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
@@ -102,11 +102,11 @@ First, the Webhook callback is a service that can receive HTTP requests, and dev
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
-Next, we can set the `callback_url` field to the above Webhook URL while filling in the corresponding parameters, as shown in the image:
+Next, we can set the `callback_url` field to the above Webhook URL and fill in the corresponding parameters, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" class="m-auto"></p>
 
-Clicking run, we can see that an immediate result is obtained, as follows:
+Clicking run, we can see that we immediately receive a result, as follows:
 
 ```
 {
